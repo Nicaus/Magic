@@ -1,0 +1,22 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+
+}
+
+body {
+
+}
+
+.login-form-frame {
+	margin: 20px auto;
+	width:310px;
+	border-radius: 3px;
+	border:1px solid #6b5736;
+	background-color: #ddd;
+	padding:20px;
+	background: linear-gradient(white, #d1d1d1); 
+}
