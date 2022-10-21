@@ -4,11 +4,11 @@
     $action = new indexAction();
     $data = $action->execute();
 
-    require_once('./partial/header.php');
+    require_once('partial/header.php');
 ?>
 
 <div>
-<a href="login.php">logiun</a>
+<a href="login.php">login</a>
 </div>
 
 <?php
