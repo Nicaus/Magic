@@ -1,14 +1,14 @@
 <?php
-    require_once('action/indexAction.php')
+    require_once('action/indexAction.php');
 
     $action = new indexAction();
     $data = $action->execute();
 
-    require_once('partial/header.php')
+    require_once('./partial/header.php');
 ?>
 
 <div>
-
+<a href="login.php">logiun</a>
 </div>
 
 <?php
