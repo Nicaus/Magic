@@ -8,7 +8,26 @@
         }
 
         protected function executeAction() {
-            
-            return [];
+            $data = []; 
+
+            if (!empty($_POST["user"])){
+
+                $data["username"] = $_POST["user"];
+                $data["password"] = $_POST["pwd"];
+             
+                $result = parent::callAPI("signin", $data);
+                
+                if ($result == "INVALID_USERNAME_PASSWORD") { 
+                    // err
+                    echo $result;
+                } else {  
+                    // Pour voir les informations retournées : var_dump($result);exit;  
+                    $key = $result->key;
+                    $_SESSION["key"] = $key;
+                    echo $key;
+                    header("Location: lobby.php");
+                }
+            }
+            return compact("data");
         }
     }
