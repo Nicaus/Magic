@@ -21,7 +21,8 @@
                     // err
                     echo $result;
                 } else {  
-                    // Pour voir les informations retournées : var_dump($result);exit;  
+                    // Pour voir les informations retournées : var_dump($result);exit; 
+                    // var_dump($result); exit; 
                     $key = $result->key;
                     $_SESSION["key"] = $key;
                     echo $key;

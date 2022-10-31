@@ -6,18 +6,21 @@
 
     require_once("partial/header.php");
 ?>
-<div>
-    <a href="">Pratique</a>
+<div class="circle">
+    <button href="">Pratique</button>
 </div>
-<div>
-    <a href="">Jouer</a>
+<div class="buttonT">
+    <button href="">Jouer</button>
 </div>
-<div>
-    <a href="">Quitter</a>
+<div class="buttonT">
+    <button href="index.php" methos>Quitter</button>
 </div>
+<div class="circle">test</div>
+
+<!-- https://stackoverflow.com/questions/20738329/how-to-call-a-php-function-on-the-click-of-a-button -->
 
 <iframe style="width:700px;height:240px;" 
-    onload="applyStyles(this)"
+    onload="applyStyles(this)" 
     src='https://magix.apps-de-cours.com/server/#/chat/<?=$_SESSION["key"]?>'> </iframe>
 
 <?php

@@ -8,7 +8,23 @@
         }
 
         protected function executeAction() {
+            $data = []; 
+            $data["key"] = $_SESSION["key"];
             
-            return [];
+            if (isset($_GET['quitter'])){
+                $result = parent::callAPI("signout", $data);
+                var_dump($result); exit; 
+                if($result == "SIGNED_OUT"){
+                    header("Locatiom: index.php");
+                }
+                elseif($result == "INVALID_KEY"){
+
+                }
+            }
+            return compact("data");
+        }
+
+        public function signout(){
+            
         }
     }

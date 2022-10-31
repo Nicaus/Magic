@@ -1,0 +1,128 @@
+Canada( 11
+	Justin Trudeau
+	Pierre Elliot Trudeau
+	Renée Levesque
+	Maurice Duplessis
+	Francois Legault
+	Gabriel Nadeau Dubois
+	Jack Layton
+	Valerie Plante
+	Stephen Harper
+	John A. Mcdonald
+	Nardwuar
+)
+
+USA( 11
+	Donald J. Trump
+	Barack Obama
+	George Bush
+	John F. Kennedy
+	Abraham Lincoln
+	Ronald Reagen
+	Richard Nixon
+	Franklin D. Roosevelt
+	Theodore Roosevelt
+	George Washington
+	Harry S. Trueman 
+)
+
+Europe( 13
+	Emmanuel Macron
+	Margaret Thatcher
+	Angela Merkel
+	Adolf Hitler
+	Benito Mussolini
+	Joseph Stalin
+	Vladimir Putin
+	Winston Churchill
+	Queen Elizabeth I
+	Queen Elizabeth II
+	Queen Victoria
+	Tito
+)
+
+Asia( 20
+	Moon Jae-In
+	Shinzo Abe
+	Emperor Hirohito
+	Ho Chi Minh
+	Mao Zedong
+	Kim Il-Sung
+	Kim Jong-il
+	Kim Jung-un
+	Xi Jingpin
+	Pol Pot
+	Hamid Karzai
+	Ashraf Ghani
+	Mohammad Daoud Khan
+	Ahmad Shah Durrani
+	King Mohammed Zahir Shah
+	Narendra Modi
+	Rodrigo Duterte
+	Ali Khameini
+	Recep Tayyip Erdogan
+	Genghis Khan
+)
+
+Africa( 7
+	Nelson Mandela
+	Desmond Tutu
+	Muammar Gaddafi
+	Thomas Sankara
+	Abdelaziz Bouteflika
+	Robert Mugabe
+	Charles Taylor
+	
+)
+
+South America( 6
+	Lula da Silva 
+	Jair Bolsonaro
+	Fidel Castro
+	Simon Bolivar
+	Augusto Pinochet
+	Hugo Chavez
+)
+
+Revolutionaries( 15
+	Karl Marx
+	Friedrich Engels
+	Che Guevara
+	Valdimir Lenin
+	Ghandi
+	Toussaint L'Ouverture
+	Malcom X
+	Martin Luther King Jr.
+	Huey P. Newton
+	Leon Trotsky
+	Napoleon Bonaparte
+	Joan of Arc
+	Frederick Douglass
+	Edward Snowdon
+	Julian Assange
+)
+
+Feminists( 10
+	Susan B. Anthony
+	Simone de Beauvoir
+	Gloria Steinheim
+	Angela Davis
+	Marsha P. Johnson
+	Malalah Yousafzai
+	Ruth Bader Ginsberg
+	Roxane Gay
+	Patrice Cullors
+	Betty Friedan
+)
+
+Nonpoliticals( 9
+	Marie Curie
+	Jean Michel Basquiat
+	Pablo Picasso
+	Frida Kahlo
+	Vincent Van Gogh
+	Leonardo da Vinci
+	Andy Warhol
+	Salvador Dali
+	Lemar Andar
+)
