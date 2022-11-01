@@ -12,10 +12,14 @@
             $data["key"] = $_SESSION["key"];
             
             if (isset($_GET['quitter'])){
+                
                 $result = parent::callAPI("signout", $data);
                 var_dump($result); exit; 
+
                 if($result == "SIGNED_OUT"){
-                    header("Locatiom: index.php");
+                    $key = $result->key;
+                    $_SESSION["key"] = $key;
+                    header("Location: index.php");
                 }
                 elseif($result == "INVALID_KEY"){
 

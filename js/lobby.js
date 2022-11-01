@@ -9,9 +9,21 @@ const applyStyles = iframe => {
         inputFontColor : "blue",   
         height : "700px",   
         memberListFontColor : "#ff00dd",   
-        memberListBackgroundColor : "white"  
+        memberListBackgroundColor : "white"
     }    
     setTimeout(() => {   
         iframe.contentWindow.postMessage(JSON.stringify(styles), "*");  
     }, 100); 
+}
+
+function myAjax() {
+    $.ajax({
+         type: "GET",
+         url: 'magix/ajax.php',
+         data:{action:'call_this'},
+         success:function(html) {
+           alert(html);
+         }
+
+    });
 }
