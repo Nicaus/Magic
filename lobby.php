@@ -7,15 +7,15 @@
     require_once("partial/header.php");
 ?>
 
-<form class=evendiv action="" method="get">
+<form class=evendiv action="" method="post">
         <div>
-            <button value="pratique" href="">Pratique</button>
+            <button name="pratique" href="">Pratique</button>
         </div>
         <div>
-            <button value="jouer" href="">Jouer</button>
+            <button name="jouer" href="">Jouer</button>
         </div>
         <div>
-            <button name="button" id="quit" href="">Quitter</button>
+            <button name="quit" href="">Quitter</button>
         </div>
 </form>
 

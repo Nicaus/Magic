@@ -10,11 +10,16 @@
         protected function executeAction() {
             $data = []; 
             $data["key"] = $_SESSION["key"];
-            
-            if (isset($_GET['quitter'])){
+            if (isset($_POST['pratique'])){
+
+            }
+            if (isset($_POST['joueur'])){
+
+            }
+            if (isset($_POST['quit'])){
                 
                 $result = parent::callAPI("signout", $data);
-                var_dump($result); exit; 
+                // var_dump($result); exit; 
 
                 if($result == "SIGNED_OUT"){
                     $key = $result->key;
