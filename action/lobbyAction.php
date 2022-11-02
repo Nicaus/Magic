@@ -11,10 +11,28 @@
             $data = []; 
             $data["key"] = $_SESSION["key"];
             if (isset($_POST['pratique'])){
+                $result = parent::callAPI("auto-match", $data);
 
+                if ($result == "JOINED_TRAINING"){
+                    $key = $result->key;
+                    $_SESSION["key"] = $key;
+                    $type = $result->type;
+                    $_SESSION["type"] = $type;
+
+                    header("Location: board.php");
+                }
             }
             if (isset($_POST['joueur'])){
+                $result = parent::callAPI("games", $data);
 
+                if ($result == "CREATED_PVP" || $result == "JOINED_PVP"){
+                    $key = $result->key;
+                    $_SESSION["key"] = $key;
+                    $type = $result->type;
+                    $_SESSION["type"] = $type;
+                    
+                    header("Location: board.php");
+                }
             }
             if (isset($_POST['quit'])){
                 
