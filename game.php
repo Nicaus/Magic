@@ -1,14 +1,14 @@
 <?php
-    require_once('action/boardAction.php');
+    require_once('action/GameAction.php');
 
-    $action = new boardAction();
+    $action = new GameAction();
     $data = $action->execute();
 
     require_once('partial/header.php');
 ?>
 
 <div>
-
+    test
 </div>
 
 <?php

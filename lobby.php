@@ -1,7 +1,7 @@
 <?php
-    require_once("action/lobbyAction.php");
+    require_once("action/LobbyAction.php");
 
-    $action = new lobbyAction();
+    $action = new LobbyAction();
     $data = $action->execute();
 
     require_once("partial/header.php");
@@ -9,13 +9,13 @@
 
 <form class=evendiv action="" method="post">
         <div>
-            <button name="pratique" href="">Pratique</button>
+            <button name="pratique">Pratique</button>
         </div>
         <div>
-            <button name="jouer" href="">Jouer</button>
+            <button name="jouer">Jouer</button>
         </div>
         <div>
-            <button name="quit" href="">Quitter</button>
+            <button name="quit">Quitter</button>
         </div>
 </form>
 

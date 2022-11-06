@@ -1,7 +1,7 @@
 <?php
-    require_once("action/popAction.php");
+    require_once("action/PopAction.php");
 
-    $action = new popAction();
+    $action = new PopAction();
     $data = $action->execute();
 
     require_once("partial/header.php");

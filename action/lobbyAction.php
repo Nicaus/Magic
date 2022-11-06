@@ -1,7 +1,7 @@
 <?php
     require_once("action/CommonAction.php");
 
-    class lobbyAction extends CommonAction {
+    class LobbyAction extends CommonAction {
 
         public function __construct() {
             parent::__construct(CommonAction::$VISIBILITY_PUBLIC);
@@ -10,48 +10,46 @@
         protected function executeAction() {
             $data = []; 
             $data["key"] = $_SESSION["key"];
-            if (isset($_POST['pratique'])){
-                $result = parent::callAPI("auto-match", $data);
+
+            if (isset($_POST['pratique'])) {
+                $data["type"] = 'TRAINING';
+                $result = parent::callAPI("games/auto-match", $data);
 
                 if ($result == "JOINED_TRAINING"){
-                    $key = $result->key;
-                    $_SESSION["key"] = $key;
                     $type = $result->type;
                     $_SESSION["type"] = $type;
-
-                    header("Location: board.php");
+                    $_SESSION["success"] = $result;
+                    header("Location: game.php");
                 }
-            }
-            if (isset($_POST['joueur'])){
-                $result = parent::callAPI("games", $data);
-
-                if ($result == "CREATED_PVP" || $result == "JOINED_PVP"){
-                    $key = $result->key;
-                    $_SESSION["key"] = $key;
-                    $type = $result->type;
-                    $_SESSION["type"] = $type;
-                    
-                    header("Location: board.php");
-                }
-            }
-            if (isset($_POST['quit'])){
                 
-                $result = parent::callAPI("signout", $data);
-                // var_dump($result); exit; 
+            } elseif (isset($_POST['jouer'])) {
+                $data["type"] = 'PVP';
+                $result = parent::callAPI("games/auto-match", $data);
 
-                if($result == "SIGNED_OUT"){
+                if ($result == "JOINED_PVP" || $result == "CREATED_PVP"){
+                    $type = $result->type;
+                    $_SESSION["type"] = $type;
+                    $_SESSION["success"] = $result;
+                    header("Location: game.php");
+                } elseif ($result == "INVALID_KEY"){
+                    echo "Clé invalide";
+                } else if ($result == "DECK_INCOMPLETE"){
+                    echo "Votre deck est incomplet";
+                }
+                
+            } elseif (isset($_POST['quit'])) {
+                $result = parent::callAPI("signout", $data);
+
+                if ($result == "SIGNED_OUT"){
                     $key = $result->key;
                     $_SESSION["key"] = $key;
-                    header("Location: index.php");
-                }
-                elseif($result == "INVALID_KEY"){
+                    $_SESSION["success"] = $result;
 
+                    header("Location: index.php");
+                } elseif ($result == "INVALID_KEY"){
+                    header("Location: index.php");
                 }
             }
             return compact("data");
-        }
-
-        public function signout(){
-            
         }
     }
