@@ -9,7 +9,6 @@ const state = () => {
         if (data == "WAITING") { 
             // header("Location: ajax-state.php");
             // $_SESSION["state"] = data;
-
         } 
         else if (data == "LAST_GAME_WON") {  
             // header("Location: lobby.php");
