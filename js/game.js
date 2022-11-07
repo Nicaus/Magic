@@ -6,7 +6,8 @@ const state = () => {
     .then(data => {
         console.log(data); // contient les cartes/état du jeu.
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
-    })
+    });
+    
 }
 
 window.addEventListener("load", () => {

@@ -9,24 +9,22 @@
 
         protected function executeAction() {
             // if ($result == "JOINED_TRAINING") {
-                $data = [];
-                $data["key"] = $_SESSION["key"];
-                $retour = $_SESSION["success"];
-                echo $retour;
-    
-                // $data["type"] = "END_TURN";
-                // $data["type"] = "SURRENDER";
-                // $data["type"] = "HERO_POWER";
-                // $data["type"] = "PLAY";
-                // $data["uid"] = $_SESSION["uid"];
-                // $data["type"] = "ATTACK";
-                // $data["uidattack"] = $_SESSION["uidattack"];
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+            $retour = $_SESSION["success"];
+            echo $retour;
 
+            // $data["type"] = "END_TURN";
+            // $data["type"] = "SURRENDER";
+            // $data["type"] = "HERO_POWER";
+            // $data["type"] = "PLAY";
+            // $data["uid"] = $_SESSION["uid"];
+            // $data["type"] = "ATTACK";
+            // $data["uidattack"] = $_SESSION["uidattack"];
+            if (isset($_POST['JOINED_TRAINING'])){
                 $result = parent::callAPI("games/action", $data);
-
                 // echo($result->type)
                 var_dump($result);
-
                 switch($result){
                     case "INVALID_KEY":
                         break;
@@ -59,6 +57,7 @@
                     case "HERO_POWER_ALREADY_USED":
                         break;
                 }
+            }
             // }
             return [];
         }

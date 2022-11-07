@@ -7,7 +7,7 @@
     require_once('partial/header.php');
 ?>
 
-<div onload="state()">
+<div onload="state(this)">
     test
 </div>
 

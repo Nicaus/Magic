@@ -6,8 +6,8 @@
 
     $result = parent::callAPI("games/state", $data);
 
-    echo("je passe ici");
-    // var_dump($result); exit;
+    echo($result);
+    var_dump($result); exit;
 
     if ($result == "WAITING") { 
         // err
@@ -24,3 +24,5 @@
     } elseif ($result == "INVALID_KEY") {
 
     }
+
+    return $result;
