@@ -6,9 +6,9 @@
 
     require_once('partial/header.php');
 ?>
-
-<div onload="state(this)">
-    test
+<script src="./js/game.js"></script>
+<div onload="state()">
+    <div id="state"></div>
 </div>
 
 <?php

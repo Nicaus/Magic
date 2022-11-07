@@ -1,28 +1,7 @@
 <?php
-    $data = [];
-    $data["key"] = $_SESSION["key"];
-    $retour = $_SESSION["success"];
-    echo $retour;
+    require_once('action/AjaxStateAction.php');
 
-    $result = parent::callAPI("games/state", $data);
+    $action = new AjaxStateAction();
+    $data = $action->execute();
 
-    echo($result);
-    var_dump($result); exit;
-
-    if ($result == "WAITING") { 
-        // err
-        echo $result;
-    } elseif ($result == "LAST_GAME_WON") {  
-        // Pour voir les informations retournées : var_dump($result);exit; 
-        // var_dump($result); exit; 
-        $key = $result->key;
-        $_SESSION["key"] = $key;
-
-        // header("Location: lobby.php");
-    } elseif ($result == "LAST_GAME_LOST") {
-        
-    } elseif ($result == "INVALID_KEY") {
-
-    }
-
-    return $result;
+    echo json_encode($data["state"]);

@@ -6,6 +6,7 @@
 
     require_once("partial/header.php");
 ?>
+<script src="./js/lobby.js"></script>
 
 <form class=evendiv action="" method="post">
         <div>
@@ -22,7 +23,6 @@
 <!-- https://stackoverflow.com/questions/20738329/how-to-call-a-php-function-on-the-click-of-a-button -->
 <div class="evendiv">
     <iframe style="width:700px;height:240px" 
-        onload="applyStyles(this)" 
         src='https://magix.apps-de-cours.com/server/#/chat/<?=$_SESSION["key"]?>'> </iframe>
 </div>
 
