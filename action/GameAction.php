@@ -8,52 +8,24 @@
         }
 
         protected function executeAction() {
-            $data = [];
-            $data["key"] = $_SESSION["key"];
-            $retour = $_SESSION["success"];
-            echo $retour;
+            // if ($result == "JOINED_TRAINING") {
+                $data = [];
+                $data["key"] = $_SESSION["key"];
+                $retour = $_SESSION["success"];
+                echo $retour;
+    
+                // $data["type"] = "END_TURN";
+                // $data["type"] = "SURRENDER";
+                // $data["type"] = "HERO_POWER";
+                // $data["type"] = "PLAY";
+                // $data["uid"] = $_SESSION["uid"];
+                // $data["type"] = "ATTACK";
+                // $data["uidattack"] = $_SESSION["uidattack"];
 
-            // if (isset($_POST['pratique'])) {
-                $result = parent::callAPI("games/state", $data);
-
-                var_dump($result); exit;
-
-                if ($result == "WAITING") { 
-                    // err
-                    echo $result;
-                } elseif ($result == "LAST_GAME_WON") {  
-                    // Pour voir les informations retournées : var_dump($result);exit; 
-                    // var_dump($result); exit; 
-                    $key = $result->key;
-                    $_SESSION["key"] = $key;
-
-                    // header("Location: lobby.php");
-                } elseif ($result == "LAST_GAME_LOST") {
-                    
-                } elseif ($result == "INVALID_KEY") {
-
-                } else {
-
-                }
-            // }
-
-            {
-            $data = [];
-            $data["key"] = $_SESSION["key"];
-            $retour = $_SESSION["success"];
-            echo $retour;
-
-            if (isset($_POST['pratique'])) {
-                $data["type"] = "END_TURN";
-                $data["type"] = "SURRENDER";
-                $data["type"] = "HERO_POWER";
-                $data["type"] = "PLAY";
-                $data["uid"] = $_SESSION["uid"];
-                $data["type"] = "ATTACK";
-                $data["uidattack"] = $_SESSION["uidattack"];
                 $result = parent::callAPI("games/action", $data);
 
-                echo($result);
+                // echo($result->type)
+                var_dump($result);
 
                 switch($result){
                     case "INVALID_KEY":
@@ -87,8 +59,7 @@
                     case "HERO_POWER_ALREADY_USED":
                         break;
                 }
-            }
-
+            // }
             return [];
         }
     }
