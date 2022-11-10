@@ -9,8 +9,7 @@ const state = () => {
         if (data == "WAITING") { 
             // header("Location: ajax-state.php");
             // $_SESSION["state"] = data;
-        } 
-        else if (data == "LAST_GAME_WON") {  
+        } else if (data == "LAST_GAME_WON") {  
             // header("Location: lobby.php");
             window.location.href = 'lobby.php';
 
@@ -21,10 +20,7 @@ const state = () => {
         } else if (data == "INVALID_KEY") {
             // header("Location: index.php");  
             window.location.href = 'index.php';
-        }
-        else{
-            document.querySelector("#test").innerHTML = data.opponent.heroClass;
-            
+        } else {            
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
@@ -41,7 +37,8 @@ const state = () => {
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
             document.querySelector("#remainingcardcount").innerHTML = "Remaining Cards: " + data["remainingCardsCount"];
 
-            document.querySelector("#opusername").innerHTML = "user: " + data.opponent.username;
+            // document.querySelector("#opusername").innerHTML = "user: " + data.opponent.username;
+            document.querySelector("#opusername").innerHTML = "user: " + data["opponent"]["username"];
             document.querySelector("#opclass").innerHTML = "heroclass: " + data.opponent.heroClass;
             document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
             document.querySelector("#opboard").innerHTML = "board: " + JSON.stringify(data.opponent.board);
@@ -53,6 +50,15 @@ const state = () => {
             document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
             document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
+
+            // bhay de data 
+            // $data["type"] = "END_TURN";
+            // $data["type"] = "SURRENDER";
+            // $data["type"] = "HERO_POWER";
+            // $data["type"] = "PLAY";
+            // $data["uid"] = $_SESSION["uid"];
+            // $data["type"] = "ATTACK";
+            // $data["uidattack"] = $_SESSION["uidattack"];
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
