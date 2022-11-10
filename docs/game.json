@@ -1,0 +1,54 @@
+{
+	"remainingTurnTime":6,
+	"heroPowerAlreadyUsed":false,
+	"yourTurn":true,
+	"hp":26,
+	"maxHp":30,
+	"heroClass":"Rogue",
+	"talent":"Restorer",
+	"mp":4,
+	"maxMp":4,
+	
+	"hand":[
+		{"id":13,"cost":3,"hp":3,"atk":3,"mechanics":["Taunt"],"dedicated":"","uid":2,"baseHP":3},
+		{"id":94,"cost":6,"hp":3,"atk":3,"mechanics":["Charge","Taunt","Deathrattle : Spawn a 3-1 charge and a 1-3 taunt minion"],"dedicated":"","uid":3,"baseHP":3},
+		{"id":23,"cost":5,"hp":1,"atk":3,"mechanics":["Battlecry : Spawn 2 minions"],"dedicated":"","uid":4,"baseHP":1},
+		{"id":45,"cost":5,"hp":6,"atk":7,"mechanics":["Battlecry : Deal 3 HP to your hero"],"dedicated":"SamChatouye (1ière place, H2020)","uid":5,"baseHP":6},
+		{"id":88,"cost":2,"hp":2,"atk":2,"mechanics":["Stealth"],"dedicated":"","uid":6,"baseHP":2},
+		{"id":23,"cost":5,"hp":1,"atk":3,"mechanics":["Battlecry : Spawn 2 minions"],"dedicated":"","uid":7,"baseHP":1},
+		{"id":77,"cost":1,"hp":2,"atk":2,"mechanics":["Deathrattle : Restore 4 health to both heroes"],"dedicated":"","uid":8,"baseHP":2}
+	],
+		
+	"board":[],
+	
+	"remainingCardsCount":23,
+	"welcomeText":"No way, José",
+	
+	"opponent":{
+		"username":"Rush-AI",
+		"heroClass":"DemonHunter",
+		"talent":"ExtraCrystal",
+		"trophyCount":0,
+		"winCount":0,
+		"lossCount":16,
+		"hp":30,
+		"maxHp":30,
+		"mp":1,
+		"maxMp":4,
+
+		"board":[
+			{"id":13,"cost":2,"hp":3,"atk":3,"mechanics":["Taunt"],"dedicated":"","uid":32,"baseHP":3,"state":"IDLE"},
+			{"id":11,"cost":2,"hp":4,"atk":1,"mechanics":["Taunt","Charge"],"dedicated":"","uid":33,"baseHP":4,"state":"IDLE"}
+		],
+
+		"handSize":5,
+		"remainingCardsCount":23,
+		"welcomeText":"You're too slow"},
+		
+	"latestActions":[
+		{"id":8,"from":"Rush-AI","action":{"type":"ATTACK","uid":32,"targetuid":null}},
+		{"id":9,"from":"Rush-AI","action":{"type":"ATTACK","uid":33,"targetuid":null}},
+		{"id":10,"from":"Rush-AI","action":{"type":"END_TURN"}}
+	]
+}
+	
