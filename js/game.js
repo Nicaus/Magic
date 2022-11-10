@@ -43,8 +43,8 @@ const state = () => {
 
             document.querySelector("#opusername").innerHTML = "user: " + data.opponent.username;
             document.querySelector("#opclass").innerHTML = "heroclass: " + data.opponent.heroClass;
-            document.querySelector("#ophp").innerHTML = "hp" + data.opponent.hp;
-            document.querySelector("#opboard").innerHTML = "board" + data.opponent.board;
+            document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
+            document.querySelector("#opboard").innerHTML = "board: " + JSON.stringify(data.opponent.board);
             document.querySelector("#optext").innerHTML = "welcometext: " + data.opponent.welcomeText;
             document.querySelector("#opcardcount").innerHTML = "card count: " + data.opponent.remainingCardsCount;
             document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
