@@ -15,6 +15,8 @@
             $state = parent::callAPI("games/state", $data);
             // $action = parent::callAPI("games/action", $data);
 
+            // $data["type"] = $action
+
             // switch($action){
             //     case "INVALID_KEY":
             //         break;

@@ -23,13 +23,16 @@ body {
 button{
 	font-size: 100px;
 	border: none;
+  	/* background-color: #FF6FFF; */
+  	border-radius: 50%;
+	border-color: black;
+}
+
+.b{
 	/* background-color: transparent; */
 	height: 100px;
  	width:  100px;
 	font-size: 25px;
-  	background-color: #FF6FFF;
-  	border-radius: 50%;
-	border-color: black;
   	display: inline-block;
 	margin: 10px;
 }
@@ -52,4 +55,10 @@ button:active {
 	display: flex;
 	justify-content: center;
 	margin: 25px;
+}
+
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  	width: 40%;
+  	border-radius: 5px;
 }

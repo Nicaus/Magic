@@ -7,6 +7,7 @@
     require_once('partial/header.php');
 ?>
 <script src="./js/game.js"></script>
+<link rel="stylesheet" href="css/game.css" />
 
 <div onload="state()">
     <div id="opponentinfo">
@@ -28,7 +29,12 @@
 
     <div id="opponentcard">
         <br>
-        <div id="opboard"></div>
+        <div id="opboard">
+            <div class="card">
+                <img src="img/cat.jpg" alt="card img">
+                <div class="desc"></div>
+            </div>
+        </div>
     </div>
     
     <div id="info">
@@ -48,18 +54,27 @@
 
     <div id="yourcards">
         <br>
-        <div id="board"></div>
+        <div id="board">
+            <div class="card">
+                <img src="img/cat.jpg" alt="card img">
+                <div class="desc"></div>
+            </div>
+        </div>
     </div>
 
     <div id="yourhand">
         <br>
-        <div id="hand"></div>
+        <div id="hand">
+            <div class="card">
+                <img src="img/cat.jpg" alt="card img">
+                <div class="desc"></div>
+            </div>
+        </div>
     </div>
 
     <div id="buttons">
-        <button id="endturn"></button>
-        <button id="surrender"></button>
-        <button id="play"></button>
+        <button id="endturn">End Turn</button>
+        <button id="surrender">Surrender</button>
     </div>
 
     <div id="actionlist">

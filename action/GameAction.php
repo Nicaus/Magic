@@ -8,6 +8,13 @@
         }
 
         protected function executeAction() {
-            return [];
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+            $retour = $_SESSION["success"];
+        
+            $action = parent::callAPI("games/action", $data);
+            $data["type"] = $action;
+
+            return compact('action');
         }
     }
