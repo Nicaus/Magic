@@ -10,13 +10,13 @@
 
 <form class=evendiv action="" method="post">
         <div>
-            <button name="pratique">Pratique</button>
+            <button name="pratique" class="b">Pratique</button>
         </div>
         <div>
-            <button name="jouer">Jouer</button>
+            <button name="jouer" class="b">Jouer</button>
         </div>
         <div>
-            <button name="quit">Quitter</button>
+            <button name="quit" class="b">Quitter</button>
         </div>
 </form>
 

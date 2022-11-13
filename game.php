@@ -5,6 +5,8 @@
     $data = $action->execute();
 
     require_once('partial/header.php');
+
+    echo json_encode($data["action"]);
 ?>
 <script src="./js/game.js"></script>
 <link rel="stylesheet" href="css/game.css" />
@@ -31,7 +33,7 @@
         <br>
         <div id="opboard">
             <div class="card">
-                <img src="img/cat.jpg" alt="card img">
+                <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
             </div>
         </div>
@@ -56,7 +58,7 @@
         <br>
         <div id="board">
             <div class="card">
-                <img src="img/cat.jpg" alt="card img">
+                <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
             </div>
         </div>
@@ -66,15 +68,15 @@
         <br>
         <div id="hand">
             <div class="card">
-                <img src="img/cat.jpg" alt="card img">
+                <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
             </div>
         </div>
     </div>
 
-    <div id="buttons">
-        <button id="endturn">End Turn</button>
-        <button id="surrender">Surrender</button>
+    <div id="buttons" action="" method="get">
+        <button id="endturn" class="b">End Turn</button>
+        <button id="surrender" class="b">Surrender</button>
     </div>
 
     <div id="actionlist">

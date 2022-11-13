@@ -22,7 +22,6 @@ const state = () => {
             window.location.href = 'index.php';
         } else {    
             
-            
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
@@ -55,6 +54,7 @@ const state = () => {
             // ACTIONS
             document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
+            
             // bhay de data 
             // $data["type"] = "END_TURN";
             // $data["type"] = "SURRENDER";
@@ -69,21 +69,35 @@ const state = () => {
     
 }
 
-const cardsjs = document.querySelectorAll("card");
-const button = document.querySelector("button")
-button.addEventListener('click', (e) => {
-    
-});
-
-cardsjs.forEach(cardjs => {
-    cardjs.addEventListener('drag', (e) =>{
-        const index = Array.from(cardsjs).indexOf(e.target);
-        const indes = Array.from(cardsjs).toString;
-        console.log(index)
-        console.log(indes)
+const action = () => {
+    fetch("game.php", { // Il faut créer cette page et son contrôleur appelle
+        method : "GET" // l’API (games/action)
     })
-});
+    // .then(response => response.json())
+    .then(action => {
+        console.log("test");
+
+        // if (action == "END_TURN"){
+        //     $data["type"] = action;
+        // }
+    });
+}
+
+// const cardsjs = document.querySelectorAll("card");
+// const button = document.querySelector("button")
+// button.addEventListener('click', (e) => {
+
+// });
+
+// cardsjs.forEach(cardjs => {
+//     cardjs.addEventListener('drag', (e) =>{
+//         const index = Array.from(cardsjs).indexOf(e.target);
+//         const indes = Array.from(cardsjs).toString;
+//         console.log(index)
+//         console.log(indes)
+//     })
+// });
 
 window.addEventListener("load", () => {
-    setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+    setTimeout(state, action, 1000); // Appel initial (attendre 1 seconde)
 });

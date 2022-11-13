@@ -20,7 +20,7 @@
             <input type="password" name="pwd" id="password">
         </div>
         
-        <div><button>envoyer</button></div>
+        <div><button class="b">envoyer</button></div>
     </form>
 </div>
 
