@@ -35,9 +35,6 @@ const state = () => {
             // console.log(JSON.stringify(data["hand"], null, 2));
 
             document.querySelector("#board").innerHTML = "yourboard: " + JSON.stringify(data["board"]);
-            let board = document.querySelector("#board");
-            let databoard = data["board"];
-            showcards(databoard, board);
 
             document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
@@ -48,12 +45,7 @@ const state = () => {
             document.querySelector("#opusername").innerHTML = "user: " + data["opponent"]["username"];
             document.querySelector("#opclass").innerHTML = "heroclass: " + data.opponent.heroClass;
             document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
-            
             document.querySelector("#opboard").innerHTML = "opboard: " + JSON.stringify(data.opponent.board);
-            let opboard = document.querySelector("#opboard");
-            let dataopboard = data.opponent.board;
-            showcards(dataopboard, opboard);
-            
             document.querySelector("#optext").innerHTML = "welcometext: " + data.opponent.welcomeText;
             document.querySelector("#opcardcount").innerHTML = "card count: " + data.opponent.remainingCardsCount;
             document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
@@ -64,7 +56,7 @@ const state = () => {
             // ACTIONS
             document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
-            // BUTTONS
+
             const endturn = document.querySelector("#endturn");
             endturn.addEventListener('click', () => {
                 gameaction("END_TURN");
@@ -75,13 +67,29 @@ const state = () => {
                 gameaction("SURRENDER");
             });
 
-                        
-            // HAND
+            // https://stackoverflow.com/questions/69001483/how-to-generate-multiple-card-for-each-object-in-an-array
             let hand = document.querySelector("#hand");
-            let datahand = data["hand"];
-            showcards(datahand, hand);
 
+            let cardsjs = data["hand"];
             
+            if (cardlength != cardsjs.length){
+                hand.innerHTML = "";
+                cardsjs.forEach(cardjs => {
+                    const card = `<div class="card">
+                                    <img src="img/i01_cat.jpg" alt="card img">
+                                    <div class="desc">${JSON.stringify(cardjs.mechanics)}</div>
+                                </div>`
+                                
+                    
+                    const element = document.createElement('div');
+                    element.innerHTML = card;
+                    hand.appendChild(element.firstChild);
+                });
+                cardlength = cardsjs.length;
+                console.log(cardlength);
+
+            }
+
             // bhay de data 
             // $data["type"] = "END_TURN"; "SURRENDER"; "HERO_POWER"; "PLAY"; "ATTACK";
             // $data["uid"] = $_SESSION["uid"];
@@ -91,24 +99,8 @@ const state = () => {
     });
 }
 
-function showcards(data, board){
-    if (cardlength != data.length){
-        board.innerHTML = "";
-        data.forEach(cardjs => {
-            const card = `<div class="card">
-                            <img src="img/i01_cat.jpg" alt="card img">
-                            <div class="desc">${JSON.stringify(cardjs.mechanics)}</div>
-                        </div>`
-                        
-            
-            const element = document.createElement('div');
-            element.innerHTML = card;
-            board.appendChild(element.firstChild);
-        });
-        cardlength = data.length;
-        console.log(cardlength);
-
-    }
+function checkifarrayunique(array){
+    return array.length === new Set(array).size;
 }
 
 const gameaction = (e) => {

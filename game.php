@@ -30,7 +30,7 @@
 
     <div id="opponentboard">
         <br>
-        <div id="opboard">
+        <div id="opboard" class="evendiv">
             <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
@@ -40,7 +40,7 @@
     
     <div id="yourboard">
         <br>
-        <div id="board">
+        <div id="board" class="evendiv">
             <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
@@ -49,7 +49,7 @@
     </div>
     
     <div id="yourhand">
-        <div id="hand">
+        <div id="hand" class="evendiv">
             <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
@@ -72,7 +72,7 @@
         <div id="remainingcardcount"></div>
     </div>
     
-    <div id="buttons" action="" method="post">
+    <div id="buttons" action="" method="post" class="evendiv">
         <button id="endturn" name="endturn" class="b">End Turn</button>
         <button id="surrender" name="surrender" class="b">Surrender</button>
     </div>
