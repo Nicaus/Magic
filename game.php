@@ -31,29 +31,17 @@
     <div id="opponentboard">
         <br>
         <div id="opboard" class="evendiv">
-            <!-- <div class="card">
-                <img src="img/i01_cat.jpg" alt="card img">
-                <div class="desc"></div>
-            </div> -->
         </div>
     </div>
     
     <div id="yourboard">
         <br>
         <div id="board" class="evendiv">
-            <!-- <div class="card">
-                <img src="img/i01_cat.jpg" alt="card img">
-                <div class="desc"></div>
-            </div> -->
         </div>
     </div>
     
     <div id="yourhand">
         <div id="hand" class="evendiv">
-            <!-- <div class="card">
-                <img src="img/i01_cat.jpg" alt="card img">
-                <div class="desc"></div>
-            </div> -->
         </div>
     </div>
 
