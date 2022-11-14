@@ -28,7 +28,7 @@
         <div id="optalent"></div>
     </div>
 
-    <div id="opponentcard">
+    <div id="opponentboard">
         <br>
         <div id="opboard">
             <!-- <div class="card">
@@ -38,6 +38,25 @@
         </div>
     </div>
     
+    <div id="yourboard">
+        <br>
+        <div id="board">
+            <!-- <div class="card">
+                <img src="img/i01_cat.jpg" alt="card img">
+                <div class="desc"></div>
+            </div> -->
+        </div>
+    </div>
+    
+    <div id="yourhand">
+        <div id="hand">
+            <!-- <div class="card">
+                <img src="img/i01_cat.jpg" alt="card img">
+                <div class="desc"></div>
+            </div> -->
+        </div>
+    </div>
+
     <div id="info">
         <br>    
         <div id="turntime"></div>
@@ -52,26 +71,7 @@
         <div id="talent"></div>
         <div id="remainingcardcount"></div>
     </div>
-
-    <div id="yourcards">
-        <br>
-        <div id="board">
-            <!-- <div class="card">
-                <img src="img/i01_cat.jpg" alt="card img">
-                <div class="desc"></div>
-            </div> -->
-        </div>
-    </div>
-
-    <div id="yourhand">
-        <div id="hand">
-            <!-- <div class="card">
-                <img src="img/i01_cat.jpg" alt="card img">
-                <div class="desc"></div>
-            </div> -->
-        </div>
-    </div>
-
+    
     <div id="buttons" action="" method="post">
         <button id="endturn" name="endturn" class="b">End Turn</button>
         <button id="surrender" name="surrender" class="b">Surrender</button>

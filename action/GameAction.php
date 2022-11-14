@@ -8,11 +8,7 @@
         }
 
         protected function executeAction() {
-            $data = [];
-            $data["key"] = $_SESSION["key"];
             
-            $action = parent::callAPI("games/action", $data);
-
-            return compact("action");
+            return [];
         }
     }

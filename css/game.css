@@ -22,4 +22,52 @@ body {
 .dragging {
     opacity: 0.5;
 }
-  
+
+#opponentinfo{
+
+}
+
+#opponentboard{
+
+}
+
+#yourboard{
+
+}
+
+#yourhand{
+    display: flex;
+    justify-content: center;
+
+}
+
+#hand{
+    flex: 1;
+}
+
+#yourinfo{
+
+}
+
+#buttons{
+
+}
+
+
+
+
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	height: 300px;
+	width: 200px;
+    margin: 0;
+	border-radius: 20px;
+}
+.card.desc{
+	overflow-wrap: break-word;
+
+}
+
+.card>img{
+	border-radius: 20px;
+}
