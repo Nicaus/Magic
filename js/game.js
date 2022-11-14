@@ -52,6 +52,7 @@ const state = () => {
             // ACTIONS
             document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
+
             const endturn = document.querySelector("#endturn");
             endturn.addEventListener('click', (e) => {
                 // data.latestActions
@@ -67,6 +68,8 @@ const state = () => {
             });
 
             // https://stackoverflow.com/questions/69001483/how-to-generate-multiple-card-for-each-object-in-an-array
+            let hand = document.querySelector("#hand");
+
             const cardsjs = data["hand"];
             cardsjs.forEach(cardjs => {
                 // cardjs.addEventListener("load", (e) =>{
@@ -78,12 +81,12 @@ const state = () => {
                 // console.log(cardjs);
                 const card = `<div class="card">
                                 <img src="img/i01_cat.jpg" alt="card img">
-                                <div class="desc"></div>
+                                <div class="desc">${JSON.stringify(cardjs)}</div>
                             </div>`
 
                 const element = document.createElement('div');
                 element.innerHTML = card;
-
+                hand.appendChild(element.firstChild);
             });
 
             // bhay de data 
@@ -94,6 +97,7 @@ const state = () => {
             // $data["uid"] = $_SESSION["uid"];
             // $data["type"] = "ATTACK";
             // $data["uidattack"] = $_SESSION["uidattack"];
+            data.execute;
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });

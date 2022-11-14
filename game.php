@@ -6,7 +6,6 @@
 
     require_once('partial/header.php');
 
-    // echo json_encode($data["action"]);
 ?>
 <script src="./js/game.js"></script>
 <link rel="stylesheet" href="css/game.css" />
@@ -65,7 +64,6 @@
     </div>
 
     <div id="yourhand">
-        <br>
         <div id="hand">
             <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
