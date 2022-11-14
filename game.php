@@ -6,7 +6,7 @@
 
     require_once('partial/header.php');
 
-    echo json_encode($data["action"]);
+    // echo json_encode($data["action"]);
 ?>
 <script src="./js/game.js"></script>
 <link rel="stylesheet" href="css/game.css" />
@@ -32,10 +32,10 @@
     <div id="opponentcard">
         <br>
         <div id="opboard">
-            <div class="card">
+            <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
-            </div>
+            </div> -->
         </div>
     </div>
     
@@ -57,26 +57,26 @@
     <div id="yourcards">
         <br>
         <div id="board">
-            <div class="card">
+            <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <div id="yourhand">
         <br>
         <div id="hand">
-            <div class="card">
+            <!-- <div class="card">
                 <img src="img/i01_cat.jpg" alt="card img">
                 <div class="desc"></div>
-            </div>
+            </div> -->
         </div>
     </div>
 
-    <div id="buttons" action="" method="get">
-        <button id="endturn" class="b">End Turn</button>
-        <button id="surrender" class="b">Surrender</button>
+    <div id="buttons" action="" method="post">
+        <button id="endturn" name="endturn" class="b">End Turn</button>
+        <button id="surrender" name="surrender" class="b">Surrender</button>
     </div>
 
     <div id="actionlist">

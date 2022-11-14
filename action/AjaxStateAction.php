@@ -13,14 +13,8 @@
             $retour = $_SESSION["success"];
         
             $state = parent::callAPI("games/state", $data);
-            // $action = parent::callAPI("games/action", $data);
 
-            // console.log($action);
-
-            // var_dump($action);
-            
-            // $data["type"] = $action;
-
+            return compact("state");
             // switch($action){
             //     case "INVALID_KEY":
             //         break;
@@ -53,13 +47,6 @@
             //     case "HERO_POWER_ALREADY_USED":
             //         break;
             //     }
-            return compact("state");
-        }
-
-        public function temp() {
-            // if ($retour == "JOINED_TRAINING") {
-                
-                // header("Location: game.php");
         }
         
     }

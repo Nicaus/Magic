@@ -4,21 +4,18 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // contient les cartes/état du jeu.
+        // console.log(data); // contient les cartes/état du jeu.
 
         if (data == "WAITING") { 
             // header("Location: ajax-state.php");
             // $_SESSION["state"] = data;
         } else if (data == "LAST_GAME_WON") {  
-            // header("Location: lobby.php");
             window.location.href = 'lobby.php';
 
         } else if (data == "LAST_GAME_LOST") {
-            // header("Location: lobby.php");
             window.location.href = 'lobby.php';
 
         } else if (data == "INVALID_KEY") {
-            // header("Location: index.php");  
             window.location.href = 'index.php';
         } else {    
             
@@ -30,7 +27,8 @@ const state = () => {
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
 
-            document.querySelector("#hand").innerHTML = "Cards in Hand: " + JSON.stringify(data["hand"]);
+            document.querySelector("#hand").innerHTML = "Cards in Hand: " + JSON.stringify(data["hand"], undefined, 2);
+            // console.log(JSON.stringify(data["hand"], null, 2));
 
             document.querySelector("#board").innerHTML = "yourboard: " + JSON.stringify(data["board"]);
 
@@ -54,7 +52,40 @@ const state = () => {
             // ACTIONS
             document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
-            
+            const endturn = document.querySelector("#endturn");
+            endturn.addEventListener('click', (e) => {
+                // data.latestActions
+                data["type"] = "END_TURN";
+                console.log(data.type);
+
+            });
+
+            const surrender = document.querySelector("#surrender");
+            surrender.addEventListener('click', (e) => {
+                data["type"] = "SURRENDER";
+                console.log(data.type);
+            });
+
+            // https://stackoverflow.com/questions/69001483/how-to-generate-multiple-card-for-each-object-in-an-array
+            const cardsjs = data["hand"];
+            cardsjs.forEach(cardjs => {
+                // cardjs.addEventListener("load", (e) =>{
+                //     const index = Array.from(cardsjs).indexOf(e.target);
+                //     const indes = Array.from(cardsjs).toString;
+                //     console.log(index);
+                //     console.log(indes);
+                // })
+                // console.log(cardjs);
+                const card = `<div class="card">
+                                <img src="img/i01_cat.jpg" alt="card img">
+                                <div class="desc"></div>
+                            </div>`
+
+                const element = document.createElement('div');
+                element.innerHTML = card;
+
+            });
+
             // bhay de data 
             // $data["type"] = "END_TURN";
             // $data["type"] = "SURRENDER";
@@ -66,29 +97,9 @@ const state = () => {
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
-    
-}
-
-const action = () => {
-    fetch("game.php", { // Il faut créer cette page et son contrôleur appelle
-        method : "GET" // l’API (games/action)
-    })
-    // .then(response => response.json())
-    .then(action => {
-        console.log("test");
-
-        // if (action == "END_TURN"){
-        //     $data["type"] = action;
-        // }
-    });
 }
 
 // const cardsjs = document.querySelectorAll("card");
-// const button = document.querySelector("button")
-// button.addEventListener('click', (e) => {
-
-// });
-
 // cardsjs.forEach(cardjs => {
 //     cardjs.addEventListener('drag', (e) =>{
 //         const index = Array.from(cardsjs).indexOf(e.target);
@@ -99,5 +110,5 @@ const action = () => {
 // });
 
 window.addEventListener("load", () => {
-    setTimeout(state, action, 1000); // Appel initial (attendre 1 seconde)
+    setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
