@@ -95,19 +95,17 @@ function showcards(data, board){
     if (cardlength != data.length){
         board.innerHTML = "";
         data.forEach(cardjs => {
+            const desc = JSON.stringify(cardjs.mechanics);
+            const dessc = desc.replace(/"([^"]+)":/g, '$1:');
             const card = `<div class="card">
-                            <img src="img/i01_cat.jpg" alt="card img">
-                            <div class="desc">${JSON.stringify(cardjs.mechanics)}</div>
-                        </div>`
-                        
-            
+                            <img src="img/i01_cat.jpg" alt="card img" class="evendiv">
+                            <div class="desc">${dessc}</div>
+                        </div>`            
             const element = document.createElement('div');
             element.innerHTML = card;
             board.appendChild(element.firstChild);
         });
         cardlength = data.length;
-        console.log(cardlength);
-
     }
 }
 
