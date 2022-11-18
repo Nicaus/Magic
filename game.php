@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/game.css" />
 
 <div onload="state()" style="display: grid">
-    <div id="opponentinfo" class="evendiv" style="background-color: blue;">
+    <div id="opponentinfo" class="evendiv">
         <br>
         <div id="opusername"></div>
         <div id="opclass"></div>
@@ -28,13 +28,13 @@
         <div id="optalent"></div>
     </div>
 
-    <div id="opponentboard" style="background-color: green;">
+    <div id="opponentboard">
         <br>
         <div id="opboard" class="evendiv">
         </div>
     </div>
 
-    <div id="three" style="background-color: blue;">
+    <div>
         <div id="yourboard">
             <br>
             <div id="board" class="evendiv">
@@ -42,13 +42,8 @@
         </div>
     </div>    
     
-    <div id="four" class="evendiv" style="background-color: green;">
-        <div id="yourhand">
-            <div id="hand" class="evendiv">
-            </div>
-        </div>
-
-        <div id="info" class="evendiv" style="background-color;">
+    <div class="evendiv">
+        <div id="info" style="background-color;">
             <br>    
             <div id="turntime"></div>
             <div id="yourturn"></div>
@@ -61,9 +56,14 @@
             <div id="heroclass"></div>
             <div id="talent"></div>
             <div id="remainingcardcount"></div>
+        </div>    
+    
+        <div id="yourhand">
+            <div id="hand" class="evendiv">
+            </div>
         </div>
-        
-        <div id="buttons" action="" method="post" class="evendiv">
+
+        <div id="buttons" action="" method="post">
             <button id="endturn" name="endturn" class="b">End Turn</button>
             <button id="surrender" name="surrender" class="b">Surrender</button>
         </div>

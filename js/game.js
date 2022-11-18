@@ -62,7 +62,7 @@ const state = () => {
             document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
             // ACTIONS
-            document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
+            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
             // BUTTONS
             const endturn = document.querySelector("#endturn");
@@ -95,11 +95,10 @@ function showcards(data, board){
     if (cardlength != data.length){
         board.innerHTML = "";
         data.forEach(cardjs => {
-            const desc = JSON.stringify(cardjs.mechanics);
-            const dessc = desc.replace(/"([^"]+)":/g, '$1:');
+            const desc = cardjs.mechanics;
             const card = `<div class="card">
-                            <img src="img/i01_cat.jpg" alt="card img" class="evendiv">
-                            <div class="desc">${dessc}</div>
+                            <img src="img/i01_cat.jpg" alt="card img">
+                            <div class="desc">${desc}</div>
                         </div>`            
             const element = document.createElement('div');
             element.innerHTML = card;

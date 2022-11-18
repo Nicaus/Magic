@@ -24,7 +24,7 @@ body {
 }
 
 #opponentinfo{
-    
+    flex: 1;
 }
 
 #opponentboard{
@@ -36,13 +36,11 @@ body {
 }
 
 #yourhand{
-    /* display: flex;
-    justify-content: center; */
 
 }
 
 #hand{
-    flex: 1;
+    /* flex: 1; */
 }
 
 #yourinfo{
@@ -53,24 +51,22 @@ body {
 
 }
 
-
-img{
-    width: 180px;
-    height: 180px;
-}
-
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	height: 300px;
-	width: 200px;
+	width: 150px;
     margin: 10px;
+    padding: 10px;
 	border-radius: 20px;
+    background-color: cadetblue;
 }
 .card>desc{
 	overflow-wrap: break-word;
-
 }
 
 .card>img{
+    width: 80%;
+    height: 150px;
 	border-radius: 20px;
+    margin: 10%;
 }

@@ -33,7 +33,7 @@ button{
 	height: 100px;
  	width:  100px;
 	font-size: 25px;
-  	display: inline-block;
+  	display: flex;
 	margin: 10px;
 }
 
