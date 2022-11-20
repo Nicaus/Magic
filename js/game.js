@@ -8,7 +8,7 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-        // console.log(data); // contient les cartes/état du jeu.
+        console.log(data); // contient les cartes/état du jeu.
 
         if (data == "WAITING") { 
             // header("Location: ajax-state.php");
@@ -21,6 +21,7 @@ const state = () => {
 
         } else if (data == "INVALID_KEY") {
             window.location.href = 'index.php';
+
         } else {    
             
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
@@ -62,7 +63,7 @@ const state = () => {
             document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
             // ACTIONS
-            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
+            document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
 
             // BUTTONS
             const endturn = document.querySelector("#endturn");
@@ -73,6 +74,25 @@ const state = () => {
             const surrender = document.querySelector("#surrender");
             surrender.addEventListener('click', () => {
                 gameaction("SURRENDER");
+            });
+
+            //DRAG
+            document.addEventListener("dragstart", e =>{
+                e.dataTransfer("Card", e.target.id);
+                gameaction("PLAY")
+            });
+
+            // const dragcard = document.querySelector(".card")
+            // dragcard.addEventListener('drag', e =>{
+            //     gameaction("PLAY");
+            // });
+
+            document.addEventListener("drop", e=>{
+                e.preventDefault;
+                if (e.target.className == "droptarget"){
+                    let dat = e.dataTransfer.getData("Card");
+                    e.target.appendChild(document.getElementById(dat));
+                }
             });
 
                         
@@ -96,10 +116,10 @@ function showcards(data, board){
         board.innerHTML = "";
         data.forEach(cardjs => {
             const desc = cardjs.mechanics;
-            const card = `<div class="card">
-                            <img src="img/i01_cat.jpg" alt="card img">
-                            <div class="desc">${desc}</div>
-                        </div>`            
+            const card = `<div draggable="true" id="dragcard" class="card">
+                    <img src="img/i01_cat.jpg" alt="card img">
+                    <div class="desc">${desc}</div>
+                </div>`            
             const element = document.createElement('div');
             element.innerHTML = card;
             board.appendChild(element.firstChild);

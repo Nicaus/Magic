@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="css/game.css" />
 
 <div onload="state()">
-    <div id="opponentinfo" class="row evendiv">
+    <div class="row evendiv">
+        <br>
         <div id="opusername"></div>
         <div id="opclass"></div>
         <div id="ophp"></div>
@@ -27,19 +28,18 @@
         <div id="optalent"></div>
     </div>
     
+    
     <div class="row">
-        <div id="opponentboard">
-            <div id="opboard" class="evendiv">
-
-            </div>
+        <br>
+        <div id="opboard" class="evendiv">
         </div>
     </div>
-    
+
 
     <div class="row">
         <div id="yourboard">
-            <div id="board" class="evendiv"> 
-
+            <div id="board" class="evendiv droptarget">
+                <p></p>
             </div>
         </div>
     </div>    
@@ -47,7 +47,8 @@
 
     <div class="row">
         <div class="evendiv">
-            <div id="info">
+            <div id="info" style="background-color;">
+                <br>    
                 <div id="turntime"></div>
                 <div id="yourturn"></div>
                 <div id="heropowerused"></div>
@@ -59,11 +60,12 @@
                 <div id="heroclass"></div>
                 <div id="talent"></div>
                 <div id="remainingcardcount"></div>
+
+                
             </div>    
         
             <div id="yourhand">
                 <div id="hand" class="evendiv">
-                    
                 </div>
             </div>
     
