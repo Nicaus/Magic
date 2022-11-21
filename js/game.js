@@ -62,44 +62,35 @@ const state = () => {
             document.querySelector("#oplosscount").innerHTML = "loss count: " + data.opponent.lossCount;
             document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
-            // ACTIONS
-            document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
-
-            // BUTTONS
-            const endturn = document.querySelector("#endturn");
-            endturn.addEventListener('click', () => {
-                gameaction("END_TURN");
-            });
-
-            const surrender = document.querySelector("#surrender");
-            surrender.addEventListener('click', () => {
-                gameaction("SURRENDER");
-            });
-
-            //DRAG
-            document.addEventListener("dragstart", e =>{
-                e.dataTransfer("Card", e.target.id);
-                gameaction("PLAY")
-            });
-
-            // const dragcard = document.querySelector(".card")
-            // dragcard.addEventListener('drag', e =>{
-            //     gameaction("PLAY");
-            // });
-
-            document.addEventListener("drop", e=>{
-                e.preventDefault;
-                if (e.target.className == "droptarget"){
-                    let dat = e.dataTransfer.getData("Card");
-                    e.target.appendChild(document.getElementById(dat));
-                }
-            });
-
-                        
             // HAND
             let hand = document.querySelector("#hand");
             let datahand = data["hand"];
             showcards(datahand, hand);
+            // ACTIONS
+            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
+
+            // BUTTONS
+            const endturn = document.querySelector("#endturn");
+            endturn.onclick = () => {
+                gameaction("END_TURN", '');
+            };
+
+            const surrender = document.querySelector("#surrender");
+            surrender.onclick = () => {
+                gameaction("SURRENDER", '');
+            };
+
+            //CARD
+            const cards = hand.querySelectorAll(".card");
+            cards.forEach( c => {
+                c.onclick = e =>{
+                    console.log(e.target.id);
+                    gameaction("PLAY", e.target.id);
+                    // e.dataTransfer("Card", e.target.id);
+                }
+            });
+                        
+            
 
             
             // bhay de data 
@@ -116,9 +107,10 @@ function showcards(data, board){
         board.innerHTML = "";
         data.forEach(cardjs => {
             const desc = cardjs.mechanics;
-            const card = `<div draggable="true" id="dragcard" class="card">
-                    <img src="img/i01_cat.jpg" alt="card img">
-                    <div class="desc">${desc}</div>
+            const uid = cardjs.uid;
+            const card = `<div id="${uid}" class="card">
+                    <img id="${uid}" src="img/i01_cat.jpg" alt="card img">
+                    <div id="${uid}" class="desc" style="overflow-wrap: break-all;">${desc}</div>
                 </div>`            
             const element = document.createElement('div');
             element.innerHTML = card;
@@ -128,10 +120,15 @@ function showcards(data, board){
     }
 }
 
-const gameaction = (e) => {
+const gameaction = (e, uid) => {
     let data = new FormData();
 
-    data.append("type", e);
+    if (e == "END_TURN" || e == "SURRENDER" || e == "HERO_PLAY"){
+        data.append("type", e);
+    } else if (e == "PLAY"){
+        data.append("type", e);
+        data.append("uid", uid);
+    }
 
     fetch("ajax-action.php",{
         method : "post",

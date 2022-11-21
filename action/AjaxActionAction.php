@@ -11,6 +11,7 @@
             $data = [];
             $data["key"] = $_SESSION["key"];
             $data["type"] = $_POST["type"];
+            $data["uid"] = $_POST["uid"];
         
             $action = parent::callAPI("games/action", $data);
 
