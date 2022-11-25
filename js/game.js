@@ -32,9 +32,8 @@ const state = () => {
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
 
-            // document.querySelector("#hand").innerHTML = "Cards in Hand: " + JSON.stringify(data["hand"], undefined, 2);
-            // console.log(JSON.stringify(data["hand"], null, 2));
 
+            // CARDS ON BOARD
             document.querySelector("#board").innerHTML = "yourboard: " + JSON.stringify(data["board"]);
             let board = document.querySelector("#board");
             let databoard = data["board"];
@@ -44,12 +43,12 @@ const state = () => {
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
             document.querySelector("#remainingcardcount").innerHTML = "Remaining Cards: " + data["remainingCardsCount"];
 
-            // document.querySelector("#opusername").innerHTML = "user: " + data.opponent.username;
             // OP SIDE OF THE BOARD
             document.querySelector("#opusername").innerHTML = "user: " + data["opponent"]["username"];
             document.querySelector("#opclass").innerHTML = "heroclass: " + data.opponent.heroClass;
             document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
             
+            // OPPONENT CARDS
             document.querySelector("#opboard").innerHTML = "opboard: " + JSON.stringify(data.opponent.board);
             let opboard = document.querySelector("#opboard");
             let dataopboard = data.opponent.board;
@@ -67,9 +66,9 @@ const state = () => {
             let datahand = data["hand"];
             showcards(datahand, hand);
             // ACTIONS
-            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
+            
 
-            // BUTTONS
+            // BUTTON ACTIONS
             const endturn = document.querySelector("#endturn");
             endturn.onclick = () => {
                 gameaction("END_TURN", '');
@@ -80,23 +79,32 @@ const state = () => {
                 gameaction("SURRENDER", '');
             };
 
-            //CARD
-            const cards = hand.querySelectorAll(".card");
-            cards.forEach( c => {
+            // CARD ACTIONS
+            const handcards = hand.querySelectorAll(".card");
+            handcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
                     gameaction("PLAY", e.target.id);
-                    // e.dataTransfer("Card", e.target.id);
                 }
             });
-                        
-            
 
-            
-            // bhay de data 
-            // $data["type"] = "END_TURN"; "SURRENDER"; "HERO_POWER"; "PLAY"; "ATTACK";
-            // $data["uid"] = $_SESSION["uid"];
-            // $data["uidattack"] = $_SESSION["uidattack"];
+            const boardcards = board.querySelectorAll(".bcards");
+            boardcards.forEach( c => {
+                c.onclick = e =>{
+                    console.log(e.target.id);
+                    gameaction("ATTACK", e.target.id);
+                }
+            });
+
+            const oppcards = board.querySelectorAll(".ocards");
+            oppcards.forEach( c => {
+                c.onclick = e =>{
+                    console.log(e.target.id);
+                    gameaction("ATTACK", e.target.id);
+                }
+            });
+                    
+            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
@@ -128,6 +136,9 @@ const gameaction = (e, uid) => {
     } else if (e == "PLAY"){
         data.append("type", e);
         data.append("uid", uid);
+    } else if (e == "ATTACK"){
+        data.append("type", e);
+        data.append("targetuid", uid)
     }
 
     fetch("ajax-action.php",{

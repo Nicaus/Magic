@@ -44,7 +44,7 @@
 
             <div id="opponentboard">
                 <div>
-                    <div id="opboard" class="evendiv">
+                    <div id="opboard" class="evendiv" method="post">
 
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
             <div id="yourboard">
                 <div>
-                    <div id="board" class="evendiv"> 
+                    <div id="board" class="evendiv" method="post"> 
 
                     </div>
                 </div>
