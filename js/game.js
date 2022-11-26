@@ -37,7 +37,7 @@ const state = () => {
             document.querySelector("#board").innerHTML = "yourboard: " + JSON.stringify(data["board"]);
             let board = document.querySelector("#board");
             let databoard = data["board"];
-            showcards(databoard, board);
+            showcards(databoard, board, "bcards");
 
             document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
@@ -52,7 +52,7 @@ const state = () => {
             document.querySelector("#opboard").innerHTML = "opboard: " + JSON.stringify(data.opponent.board);
             let opboard = document.querySelector("#opboard");
             let dataopboard = data.opponent.board;
-            showcards(dataopboard, opboard);
+            showcards(dataopboard, opboard, "ocards");
             
             document.querySelector("#optext").innerHTML = "welcometext: " + data.opponent.welcomeText;
             document.querySelector("#opcardcount").innerHTML = "card count: " + data.opponent.remainingCardsCount;
@@ -64,7 +64,7 @@ const state = () => {
             // HAND
             let hand = document.querySelector("#hand");
             let datahand = data["hand"];
-            showcards(datahand, hand);
+            showcards(datahand, hand, "hcards");
             // ACTIONS
             
 
@@ -80,7 +80,7 @@ const state = () => {
             };
 
             // CARD ACTIONS
-            const handcards = hand.querySelectorAll(".card");
+            const handcards = hand.querySelectorAll(".hcards");
             handcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
@@ -96,7 +96,7 @@ const state = () => {
                 }
             });
 
-            const oppcards = board.querySelectorAll(".ocards");
+            const oppcards = opboard.querySelectorAll(".ocards");
             oppcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
@@ -110,13 +110,14 @@ const state = () => {
     });
 }
 
-function showcards(data, board){
+function showcards(data, board, c){
     if (cardlength != data.length){
         board.innerHTML = "";
         data.forEach(cardjs => {
             const desc = cardjs.mechanics;
             const uid = cardjs.uid;
-            const card = `<div id="${uid}" class="card">
+            const name = c;
+            const card = `<div id="${uid}" class="card ${name}">
                     <img id="${uid}" src="img/i01_cat.jpg" alt="card img">
                     <div id="${uid}" class="desc" style="overflow-wrap: break-all;">${desc}</div>
                 </div>`            

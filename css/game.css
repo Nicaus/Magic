@@ -26,22 +26,22 @@ body {
 }
 
 #opponentinfo{
-
+    
 }
 
 #opponentboard{
 
 }
 
-#yourboard{
+/* #yourboard{
     display: flex;
     justify-content: center;
     height: 250px;
     width: inherit;
-}
+} */
 
 #yourhand{
-    width: auto;
+
 }
 
 #hand{
@@ -50,11 +50,13 @@ body {
 }
 
 #yourinfo{
+    display: inline-grid;
 
 }
 
 #buttons{
     float: right;
+    display: inline-grid;
 }
 
 #bot{
@@ -67,7 +69,15 @@ body {
 .evenbot{
     display: flex;
 	justify-content: space-between;
-	margin: 25px;
+}
+
+.eventop{
+    background-color: rgba(255, 255, 255, 0.411);
+
+}
+.even{
+    width: 100vw;
+	justify-content: center;
 }
 
 .card{
@@ -85,8 +95,8 @@ body {
 } */
 
 .card>img{
-    width: 80%;
-    height: 120px;
-	border-radius: 20px;
-    margin: 10%;
+    width: 90%;
+    height: 125px;
+	border-radius: 10px;
+    margin: 5%;
 }

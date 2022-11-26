@@ -25,7 +25,7 @@
         <div onload="state()" >
 
             <div id="opponentinfo">
-                <div class="evendiv">
+                <div class="eventop evendiv">
                     <div id="opusername"></div>
                     <div id="opclass"></div>
                     <div id="ophp"></div>
@@ -42,50 +42,44 @@
                 </div>
             </div>
 
-            <div id="opponentboard">
-                <div>
-                    <div id="opboard" class="evendiv" method="post">
+            <div id="opponentboard" class="even">
+                <div id="opboard" class="evendiv" method="post">
 
-                    </div>
                 </div>
             </div>
 
 
-            <div id="yourboard">
-                <div>
-                    <div id="board" class="evendiv" method="post"> 
+            <div id="yourboard" class="even">
+                <div id="board" class="evendiv" method="post"> 
 
-                    </div>
                 </div>
             </div>    
 
 
-            <div id="bot">
-                <div class="evenbot">
-                    <div id="info">
-                        <div id="turntime"></div>
-                        <div id="yourturn"></div>
-                        <div id="heropowerused"></div>
-                        <div id="hp"></div>
-                        <div id="maxhp"></div>
-                        <div id="mp"></div>
-                        <div id="maxmp"></div>
-                        <div id="welcometext"></div>
-                        <div id="heroclass"></div>
-                        <div id="talent"></div>
-                        <div id="remainingcardcount"></div>
-                    </div>    
+            <div id="bot" class="evenbot">
+                <div id="info">
+                    <div id="turntime"></div>
+                    <div id="yourturn"></div>
+                    <div id="heropowerused"></div>
+                    <div id="hp"></div>
+                    <div id="maxhp"></div>
+                    <div id="mp"></div>
+                    <div id="maxmp"></div>
+                    <div id="welcometext"></div>
+                    <div id="heroclass"></div>
+                    <div id="talent"></div>
+                    <div id="remainingcardcount"></div>
+                </div>    
 
-                    <div id="yourhand">
-                        <div id="hand" class="evendiv" method="post">
+                <div id="yourhand">
+                    <div id="hand" class="evendiv" method="post">
 
-                        </div>
                     </div>
+                </div>
 
-                    <div id="buttons" action="" method="post">
-                        <button id="endturn" name="endturn" class="b">End Turn</button>
-                        <button id="surrender" name="surrender" class="b">Surrender</button>
-                    </div>
+                <div id="buttons" action="" method="post">
+                    <button id="endturn" name="endturn" class="b">End Turn</button>
+                    <button id="surrender" name="surrender" class="b">Surrender</button>
                 </div>
             </div>
 

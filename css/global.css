@@ -64,5 +64,5 @@ button:active {
 .evendiv{
 	display: flex;
 	justify-content: center;
-	margin: 25px;
+	padding: 25px;
 }
