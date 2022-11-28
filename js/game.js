@@ -42,7 +42,7 @@ const state = () => {
                 case "ACTION_IS_NOT_AN_OBJECT":
                     error = "Votre action n'est pas un objet!"; break;
                 case "NOT_ENOUGH_ENERGY":
-                    document.querySelector("#error").innerHTML = "Error: " + "Pas assez d'énergie ;("; break;
+                    error = "Pas assez d'énergie ;("; break;
                 case "BOARD_IS_FULL ":
                     error = "Trop de carte en jeu "; break;
                 case "CARD_NOT_IN_HAND":
@@ -64,6 +64,7 @@ const state = () => {
                 case "HERO_POWER_ALREADY_USED":
                     error = "Hero Power a déja été utilisé"; break;
             }
+
             
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
@@ -72,6 +73,8 @@ const state = () => {
             document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
+            document.querySelector("#error").innerHTML = "Error: " + error;
+
             // document.querySelector("#error").innerHTML = "Error: " + error;
             // error = ""
 
@@ -191,6 +194,7 @@ function showcards(data, board, c){
                         ${atk}
                     </div>
                 </div>
+                <div id="${uid}" class="image"></div>
                 <div id="${uid}" class="desc">${desc}</div>
             </div>`
             const element = document.createElement('div');
