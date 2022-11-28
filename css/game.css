@@ -3,6 +3,26 @@ body {
     display: grid;
 }
 
+#cost{
+    background-image: url(../img/icons/cost.png);
+}
+
+#hpp{
+    background-image: url(../img/icons/hp.png);
+}
+
+#atk{
+    background-image: url(../img/icons/atk.png);
+}
+
+#cost, #hpp, #atk{
+    background-size: 50px 50px;
+}
+
+#info{
+    padding: 2vw;
+}
+
 #opponentinfo{
     position: absolute;
     top: 0;
@@ -10,11 +30,11 @@ body {
 
 #opponentboard{
     margin-top: 50px;
-    height: 300px;
+    height: 16vw;
 }
 
 #yourboard{
-    height: 300px;
+    height: 16vw;
 } 
 
 #yourhand{
@@ -31,8 +51,9 @@ body {
 }
 
 #buttons{
-    float: right;
-    display: inline-grid;
+    /* float: right; */
+    /* display: inline-grid; */
+    padding: 2vw;
 }
 
 #bot{
@@ -82,20 +103,6 @@ body {
     color: blue;
 }
 
-#cost{
-    background-image: url(../img/icons/cost.png);
-}
 
-#hpp{
-    background-image: url(../img/icons/hp.png);
-}
-
-#atk{
-    background-image: url(../img/icons/atk.png);
-}
-
-#cost, #hpp, #atk{
-    background-size: 50px 50px;
-}
 
 /* https://thenounproject.com/browse/collection-icon/wolrd-flags-set-68008/?p=1 */

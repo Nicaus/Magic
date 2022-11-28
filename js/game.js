@@ -191,7 +191,6 @@ function showcards(data, board, c){
                         ${atk}
                     </div>
                 </div>
-                <div id="${uid}" class="image"></div>
                 <div id="${uid}" class="desc">${desc}</div>
             </div>`
             const element = document.createElement('div');
