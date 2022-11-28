@@ -50,6 +50,12 @@ button:active {
 	width:310px;
 	padding:20px;
 	text-align: center;
+	font-size: 35px;
+}
+
+input{
+	font-size: 25px;
+	text-align: center;
 }
 
 .middle{

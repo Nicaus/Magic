@@ -2,6 +2,7 @@ let len = 0;
 let cardlength = null;
 let storedid = null;
 let uid = "";
+let error = "";
 
 const state = () => {
     fetch("ajax-state.php", { // Il faut créer cette page et son contrôleur appelle
@@ -33,6 +34,36 @@ const state = () => {
             window.location.href = 'index.php';
 
         } else {    
+            switch(data){
+                case "INVALID_KEY":
+                    error = "Clé invalide, deloggez-vous et ressayez"; break;
+                case "INVALID_ACTION":
+                    error = "Action invalide"; break;
+                case "ACTION_IS_NOT_AN_OBJECT":
+                    error = "Votre action n'est pas un objet!"; break;
+                case "NOT_ENOUGH_ENERGY":
+                    document.querySelector("#error").innerHTML = "Error: " + "Pas assez d'énergie ;("; break;
+                case "BOARD_IS_FULL ":
+                    error = "Trop de carte en jeu "; break;
+                case "CARD_NOT_IN_HAND":
+                    error = "Il n'y a pas de carte dans votre main"; break;
+                case "CARD_IS_SLEEPING":
+                    error = "Carte endormie"; break;
+                case "MUST_ATTACK_TAUNT_FIRST":
+                    error = "Attacker le Taunt en premier"; break;
+                case "OPPONENT_CARD_NOT_FOUND":
+                    error = "Carte visé n'existe pas"; break;
+                case "OPPONENT_CARD_HAS_STEALTH":
+                    error = "Carte visé est invisible"; break;
+                case "CARD_NOT_FOUND":
+                    error = "Carte non trouvé"; break;
+                case "ERROR_PROCESSING_ACTION":
+                    error = "Votre action n'a pas été traité"; break;
+                case "INTERNAL_ACTION_ERROR":
+                    error = "Erreur interne"; break;
+                case "HERO_POWER_ALREADY_USED":
+                    error = "Hero Power a déja été utilisé"; break;
+            }
             
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
@@ -41,7 +72,8 @@ const state = () => {
             document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
-            document.querySelector("#error").innerHTML = "Error: " + data;
+            // document.querySelector("#error").innerHTML = "Error: " + error;
+            // error = ""
 
 
             // CARDS ON BOARD
@@ -117,7 +149,7 @@ const state = () => {
             const hero = document.querySelector("#opponentinfo");
             hero.onclick = () =>{
                 console.log("op");
-                gameaction("ATTACK", uid, 0);
+                gameaction("ATTACK", uid, "0");
                 uid = "";
             };
                     

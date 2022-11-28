@@ -13,12 +13,10 @@
             
             <form action="" method="post">
                 <div>
-                    <label for="user">Nom d'usager: </label>
-                    <input type="text" name="user" id="user">
+                    <input type="text" name="user" id="user" placeholder="Nom d'usager">
                 </div>
                 <div>
-                    <label for="pwd">Mot de passe: </label>
-                    <input type="password" name="pwd" id="password">
+                    <input type="password" name="pwd" id="password" placeholder="Mot de passe">
                 </div>
                 
                 <div class="evendiv">
