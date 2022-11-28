@@ -25,20 +25,22 @@
         <div onload="state()" >
 
             <div id="opponentinfo" class="even">
-                <div class="eventop evendiv">
+                <div class="eventop">
+                    
                     <div id="opusername"></div>
-                    <div id="opclass"></div>
-                    <div id="ophp"></div>
-                    <div id="opmaxhp"></div>
-                    <div id="opmp"></div>
-                    <div id="opmaxmp"></div>
-                    <div id="optext"></div>
-                    <div id="opcardcount"></div>
-                    <div id="ophandsize"></div>
-                    <div id="optrophycount"></div>
-                    <div id="opwincount"></div>
-                    <div id="oplosscount"></div>
-                    <div id="optalent"></div>
+                    <div id="enemy" style="display: flex; align-items: center; flex-direction: column;">
+                        <div id="opimage"></div>
+                        <div id="optext"></div>
+                        <div id="opclass"></div>
+                        <div id="optalent"></div>
+                    </div>
+
+                    <div id=opinfo>
+                        <div id="ophp"></div>
+                        <div id="opmp"></div>
+                        <div id="opcardcount"></div>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -62,14 +64,14 @@
                     <div id="yourturn"></div>
                     <div id="heropowerused"></div>
                     <div id="hp"></div>
-                    <div id="maxhp"></div>
+                    <!-- <div id="maxhp"></div> -->
                     <div id="mp"></div>
-                    <div id="maxmp"></div>
-                    <div id="welcometext"></div>
+                    <!-- <div id="maxmp"></div> -->
+                    <!-- <div id="welcometext"></div> -->
                     <div id="heroclass"></div>
                     <div id="talent"></div>
                     <div id="remainingcardcount"></div>
-                    <div id="error"></div>
+                    <!-- <div id="error"></div> -->
                 </div>    
 
                 <div id="yourhand">

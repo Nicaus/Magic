@@ -70,11 +70,9 @@ const state = () => {
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
             document.querySelector("#hp").innerHTML = "Health: " + data["hp"];
-            document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
+            // document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
-            document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
-            document.querySelector("#error").innerHTML = "Error: " + error;
-
+            // document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
             // document.querySelector("#error").innerHTML = "Error: " + error;
             // error = ""
 
@@ -84,7 +82,7 @@ const state = () => {
             let databoard = data["board"];
             showcards(databoard, board, "bcards");
 
-            document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
+            // document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
             document.querySelector("#remainingcardcount").innerHTML = "Remaining Cards: " + data["remainingCardsCount"];
 
@@ -100,10 +98,11 @@ const state = () => {
             
             document.querySelector("#optext").innerHTML = "welcometext: " + data.opponent.welcomeText;
             document.querySelector("#opcardcount").innerHTML = "card count: " + data.opponent.remainingCardsCount;
-            document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
-            document.querySelector("#opwincount").innerHTML = "win count: " + data.opponent.winCount;
-            document.querySelector("#oplosscount").innerHTML = "loss count: " + data.opponent.lossCount;
-            document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
+            document.querySelector("#opmp").innerHTML = "mp: " + data.opponent.mp;
+            // document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
+            // document.querySelector("#opwincount").innerHTML = "win count: " + data.opponent.winCount;
+            // document.querySelector("#oplosscount").innerHTML = "loss count: " + data.opponent.lossCount;
+            // document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
             // HAND
             let hand = document.querySelector("#hand");

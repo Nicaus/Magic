@@ -24,8 +24,43 @@ body {
 }
 
 #opponentinfo{
+    background-color: rgba(255, 255, 255, 0.411);
     position: absolute;
     top: 0;
+}
+
+#opinfo{
+    display: flex; 
+    align-items: center; 
+    flex-direction: row;
+}
+
+#opimage{
+    background-image: url(../img/enemy.png);
+    background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
+}
+
+#opmp{
+    background-image: url(../img/icons/cost.png);
+    background-size: 50px 50px;
+    width: 5vw;
+    height: 5vw;
+}
+
+#ophp{
+    background-image: url(../img/icons/hp.png);
+    background-size: 50px 50px;
+    width: 5vw;
+    height: 5vw;
+}
+
+#opcardcount{
+    background-image: url(../img/icons/atk.png);
+    background-size: 50px 50px;
+    width: 5vw;
+    height: 5vw;
 }
 
 #opponentboard{
@@ -37,22 +72,11 @@ body {
     height: 16vw;
 } 
 
-#yourhand{
-
-}
-
-#hand{
-
-}
-
 #yourinfo{
     display: inline-grid;
-
 }
 
 #buttons{
-    /* float: right; */
-    /* display: inline-grid; */
     padding: 2vw;
 }
 
@@ -68,6 +92,8 @@ body {
 
 .eventop{
     background-color: rgba(255, 255, 255, 0.411);
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .even{
@@ -93,10 +119,9 @@ body {
     background-image: url("../img/i01_cat.jpg");
     background-size: 125px;
 
-    width: 125px;
-    height: 125px;
-    border-radius: 10px;
-    /* margin: 5%; */
+    width: 8vw;
+    height: 8vw;
+    border-radius: 5vw;
 }
 
 .cinfo{
