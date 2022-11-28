@@ -1,51 +1,27 @@
 body {
     user-select: none;
     display: grid;
-    
-}
-
-#draggable {
-    text-align: center;
-    background: white;
-}
-
-.dropzone {
-    width: 200px;
-    height: 20px;
-    background: blueviolet;
-    margin: 10px;
-    padding: 10px;
-}
-
-.dropzone.dragover {
-    background-color: purple;
-}
-
-.dragging {
-    opacity: 0.5;
 }
 
 #opponentinfo{
-    
+    position: absolute;
+    top: 0;
 }
 
 #opponentboard{
-
+    margin-top: 50px;
+    height: 300px;
 }
 
-/* #yourboard{
-    display: flex;
-    justify-content: center;
-    height: 250px;
-    width: inherit;
-} */
+#yourboard{
+    height: 300px;
+} 
 
 #yourhand{
 
 }
 
 #hand{
-    /* flex: 1; */
 
 }
 
@@ -64,17 +40,14 @@ body {
     bottom: 0;
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.411);
-}
- 
-.evenbot{
     display: flex;
 	justify-content: space-between;
 }
 
 .eventop{
     background-color: rgba(255, 255, 255, 0.411);
-
 }
+
 .even{
     width: 100vw;
 	justify-content: center;
@@ -90,13 +63,39 @@ body {
     background-color:ivory;
 }
 
-/* .card>desc{
+.card>desc{
 	overflow-wrap: break-word;
-} */
+} 
 
-.card>img{
-    width: 90%;
+.image{
+    background-image: url("../img/i01_cat.jpg");
+    background-size: 125px;
+
+    width: 125px;
     height: 125px;
-	border-radius: 10px;
-    margin: 5%;
+    border-radius: 10px;
+    /* margin: 5%; */
 }
+
+.cinfo{
+    display: inline-block;
+    color: blue;
+}
+
+#cost{
+    background-image: url(../img/icons/cost.png);
+}
+
+#hpp{
+    background-image: url(../img/icons/hp.png);
+}
+
+#atk{
+    background-image: url(../img/icons/atk.png);
+}
+
+#cost, #hpp, #atk{
+    background-size: 50px 50px;
+}
+
+/* https://thenounproject.com/browse/collection-icon/wolrd-flags-set-68008/?p=1 */

@@ -24,7 +24,7 @@
     <body style="background-image: url(img/login.png);">
         <div onload="state()" >
 
-            <div id="opponentinfo">
+            <div id="opponentinfo" class="even">
                 <div class="eventop evendiv">
                     <div id="opusername"></div>
                     <div id="opclass"></div>
@@ -56,7 +56,7 @@
             </div>    
 
 
-            <div id="bot" class="evenbot">
+            <div id="bot">
                 <div id="info">
                     <div id="turntime"></div>
                     <div id="yourturn"></div>
@@ -69,6 +69,7 @@
                     <div id="heroclass"></div>
                     <div id="talent"></div>
                     <div id="remainingcardcount"></div>
+                    <div id="error"></div>
                 </div>    
 
                 <div id="yourhand">
@@ -83,11 +84,25 @@
                 </div>
             </div>
 
+            <!-- <div id="${uid}" class="card ${name}">
+                <div id="${uid}" class="image evendiv"></div>
+                <div id="${uid}" class="cinfo">
+                    <div id="${uid} cost">
+                        ${cost}
+                    </div>
+                    <div id="${uid} hpp">
+                        ${hpp}
+                    </div>
+                    <div id="${uid} atk">
+                        ${atk}
+                    </div>
+                </div>
+                <div id="${uid}" class="desc">${desc}</div>
+            </div> -->
+
             <!-- <div id="actionlist">
                 <div id="lastestactions"></div>
             </div> -->
-
-
         </div>
     </body>
 </html>

@@ -1,6 +1,7 @@
 let len = 0;
 let cardlength = null;
 let storedid = null;
+let uid = "";
 
 const state = () => {
     fetch("ajax-state.php", { // Il faut créer cette page et son contrôleur appelle
@@ -14,12 +15,21 @@ const state = () => {
             // header("Location: ajax-state.php");
             // $_SESSION["state"] = data;
         } else if (data == "LAST_GAME_WON") {  
+            blur();
+            alert("YOU WON :)");
+            setTimeout(1000);
             window.location.href = 'lobby.php';
 
         } else if (data == "LAST_GAME_LOST") {
+            blur();
+            alert("YOU LOST ;(");
+            setTimeout(1000);
             window.location.href = 'lobby.php';
 
         } else if (data == "INVALID_KEY") {
+            blur();
+            alert("CLÉ INVALIDE");
+            setTimeout(1000);
             window.location.href = 'index.php';
 
         } else {    
@@ -31,10 +41,10 @@ const state = () => {
             document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
+            document.querySelector("#error").innerHTML = "Error: " + data;
 
 
             // CARDS ON BOARD
-            document.querySelector("#board").innerHTML = "yourboard: " + JSON.stringify(data["board"]);
             let board = document.querySelector("#board");
             let databoard = data["board"];
             showcards(databoard, board, "bcards");
@@ -49,7 +59,6 @@ const state = () => {
             document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
             
             // OPPONENT CARDS
-            document.querySelector("#opboard").innerHTML = "opboard: " + JSON.stringify(data.opponent.board);
             let opboard = document.querySelector("#opboard");
             let dataopboard = data.opponent.board;
             showcards(dataopboard, opboard, "ocards");
@@ -71,12 +80,12 @@ const state = () => {
             // BUTTON ACTIONS
             const endturn = document.querySelector("#endturn");
             endturn.onclick = () => {
-                gameaction("END_TURN", '');
+                gameaction("END_TURN", '', '');
             };
 
             const surrender = document.querySelector("#surrender");
             surrender.onclick = () => {
-                gameaction("SURRENDER", '');
+                gameaction("SURRENDER", '', '');
             };
 
             // CARD ACTIONS
@@ -84,7 +93,7 @@ const state = () => {
             handcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
-                    gameaction("PLAY", e.target.id);
+                    gameaction("PLAY", e.target.id, '');
                 }
             });
 
@@ -92,7 +101,7 @@ const state = () => {
             boardcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
-                    gameaction("ATTACK", e.target.id);
+                    uid = e.target.id;
                 }
             });
 
@@ -100,9 +109,17 @@ const state = () => {
             oppcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
-                    gameaction("ATTACK", e.target.id);
+                    gameaction("ATTACK", uid, e.target.id);
+                    uid = "";
                 }
             });
+
+            const hero = document.querySelector("#opponentinfo");
+            hero.onclick = () =>{
+                console.log("op");
+                gameaction("ATTACK", uid, 0);
+                uid = "";
+            };
                     
             // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
         }
@@ -114,13 +131,37 @@ function showcards(data, board, c){
     if (cardlength != data.length){
         board.innerHTML = "";
         data.forEach(cardjs => {
-            const desc = cardjs.mechanics;
+            let desc = cardjs.mechanics;
             const uid = cardjs.uid;
+            const cost = cardjs.cost;
+            const hpp = cardjs.hp;
+            const atk = cardjs.atk;
             const name = c;
+
+            if (desc == ""){
+                desc = "Minion";
+            }
+
+            // const card = `<div id="${uid}" class="card ${name}">
+            //         <img id="${uid}" src="img/i01_cat.jpg" alt="card img">
+            //         <div id="${uid}" class="desc" style="overflow-wrap: break-all;">${desc}</div>
+            //     </div>`      
+            
             const card = `<div id="${uid}" class="card ${name}">
-                    <img id="${uid}" src="img/i01_cat.jpg" alt="card img">
-                    <div id="${uid}" class="desc" style="overflow-wrap: break-all;">${desc}</div>
-                </div>`            
+                <div id="${uid}" class="cinfo">
+                    <div id="${uid} cost">
+                        ${cost}
+                    </div>
+                    <div id="${uid} hpp">
+                        ${hpp}
+                    </div>
+                    <div id="${uid} atk">
+                        ${atk}
+                    </div>
+                </div>
+                <div id="${uid}" class="image"></div>
+                <div id="${uid}" class="desc">${desc}</div>
+            </div>`
             const element = document.createElement('div');
             element.innerHTML = card;
             board.appendChild(element.firstChild);
@@ -129,17 +170,21 @@ function showcards(data, board, c){
     }
 }
 
-const gameaction = (e, uid) => {
+const gameaction = (e, uid, targetuid) => {
     let data = new FormData();
 
     if (e == "END_TURN" || e == "SURRENDER" || e == "HERO_PLAY"){
         data.append("type", e);
+        data.append("uid", "");
+        data.append("targetuid", "");
     } else if (e == "PLAY"){
         data.append("type", e);
         data.append("uid", uid);
+        data.append("targetuid", "");
     } else if (e == "ATTACK"){
         data.append("type", e);
-        data.append("targetuid", uid)
+        data.append("uid", uid);
+        data.append("targetuid", targetuid);
     }
 
     fetch("ajax-action.php",{
