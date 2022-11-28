@@ -24,15 +24,45 @@ body {
 }
 
 #opponentinfo{
-    background-color: rgba(255, 255, 255, 0.411);
+    /* background-color: rgba(255, 255, 255, 0.411); */
     position: absolute;
     top: 0;
+}
+
+.eventop{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: row;
+}
+
+#enemyboxed{
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    background-color: rgb(137, 195, 218, 0.411);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: row;
+}
+
+#opusername{
+    width: 150px;
+}
+
+#enemy{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+    width: 150px;
 }
 
 #opinfo{
     display: flex; 
     align-items: center; 
     flex-direction: row;
+    width: 150px;
 }
 
 #opimage{
@@ -45,26 +75,26 @@ body {
 #opmp{
     background-image: url(../img/icons/cost.png);
     background-size: 50px 50px;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
 }
 
 #ophp{
     background-image: url(../img/icons/hp.png);
     background-size: 50px 50px;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
 }
 
 #opcardcount{
     background-image: url(../img/icons/atk.png);
     background-size: 50px 50px;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
 }
 
 #opponentboard{
-    margin-top: 50px;
+    margin-top: 2vw;
     height: 16vw;
 }
 
@@ -88,12 +118,8 @@ body {
     background-color: rgba(255, 255, 255, 0.411);
     display: flex;
 	justify-content: space-between;
-}
-
-.eventop{
-    background-color: rgba(255, 255, 255, 0.411);
-    display: flex;
-    justify-content: space-evenly;
+    border-radius: 20px;
+    margin: 0.5vw;
 }
 
 .even{

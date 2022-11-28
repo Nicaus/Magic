@@ -26,19 +26,21 @@
 
             <div id="opponentinfo" class="even">
                 <div class="eventop">
-                    
-                    <div id="opusername"></div>
-                    <div id="enemy" style="display: flex; align-items: center; flex-direction: column;">
-                        <div id="opimage"></div>
-                        <div id="optext"></div>
-                        <div id="opclass"></div>
-                        <div id="optalent"></div>
-                    </div>
-
-                    <div id=opinfo>
-                        <div id="ophp"></div>
-                        <div id="opmp"></div>
-                        <div id="opcardcount"></div>
+                    <div id="enemyboxed">
+                        <div id="opusername" class="middle"></div>
+    
+                        <div id="enemy">
+                            <div id="opimage"></div>
+                            <div id="optext"></div>
+                            <div id="opclass"></div>
+                            <div id="optalent"></div>
+                        </div>
+    
+                        <div id=opinfo>
+                            <div id="ophp" class="middle"></div>
+                            <div id="opmp" class="middle"></div>
+                            <div id="opcardcount" class="middle"></div>
+                        </div>
                     </div>
                     
                 </div>

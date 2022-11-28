@@ -65,7 +65,6 @@ const state = () => {
                     error = "Hero Power a déja été utilisé"; break;
             }
 
-            
             document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
@@ -74,31 +73,18 @@ const state = () => {
             document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
             // document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
             // document.querySelector("#error").innerHTML = "Error: " + error;
-            // error = ""
-
-
-            // CARDS ON BOARD
-            let board = document.querySelector("#board");
-            let databoard = data["board"];
-            showcards(databoard, board, "bcards");
-
             // document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
             document.querySelector("#remainingcardcount").innerHTML = "Remaining Cards: " + data["remainingCardsCount"];
 
             // OP SIDE OF THE BOARD
-            document.querySelector("#opusername").innerHTML = "user: " + data["opponent"]["username"];
-            document.querySelector("#opclass").innerHTML = "heroclass: " + data.opponent.heroClass;
-            document.querySelector("#ophp").innerHTML = "hp: " + data.opponent.hp;
-            
-            // OPPONENT CARDS
-            let opboard = document.querySelector("#opboard");
-            let dataopboard = data.opponent.board;
-            showcards(dataopboard, opboard, "ocards");
-            
-            document.querySelector("#optext").innerHTML = "welcometext: " + data.opponent.welcomeText;
-            document.querySelector("#opcardcount").innerHTML = "card count: " + data.opponent.remainingCardsCount;
-            document.querySelector("#opmp").innerHTML = "mp: " + data.opponent.mp;
+            document.querySelector("#opusername").innerHTML = data["opponent"]["username"];
+            document.querySelector("#opclass").innerHTML = data.opponent.heroClass;
+            document.querySelector("#optext").innerHTML = data.opponent.welcomeText;
+            document.querySelector("#opcardcount").innerHTML = data.opponent.remainingCardsCount;
+            document.querySelector("#opmp").innerHTML = data.opponent.mp;
+            document.querySelector("#ophp").innerHTML = data.opponent.hp;
+
             // document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
             // document.querySelector("#opwincount").innerHTML = "win count: " + data.opponent.winCount;
             // document.querySelector("#oplosscount").innerHTML = "loss count: " + data.opponent.lossCount;
@@ -108,10 +94,19 @@ const state = () => {
             let hand = document.querySelector("#hand");
             let datahand = data["hand"];
             showcards(datahand, hand, "hcards");
-            // ACTIONS
-            
 
-            // BUTTON ACTIONS
+            // CARDS ON BOARD
+            let board = document.querySelector("#board");
+            let databoard = data["board"];
+            showcards(databoard, board, "bcards");
+
+            // OPPONENT CARDS
+            let opboard = document.querySelector("#opboard");
+            let dataopboard = data.opponent.board;
+            showcards(dataopboard, opboard, "ocards");
+
+            // ACTIONS / ONCLICK
+            // BUTTON 
             const endturn = document.querySelector("#endturn");
             endturn.onclick = () => {
                 gameaction("END_TURN", '', '');
@@ -122,7 +117,7 @@ const state = () => {
                 gameaction("SURRENDER", '', '');
             };
 
-            // CARD ACTIONS
+            // CARD 
             const handcards = hand.querySelectorAll(".hcards");
             handcards.forEach( c => {
                 c.onclick = e =>{
@@ -174,13 +169,8 @@ function showcards(data, board, c){
 
             if (desc == ""){
                 desc = "Minion";
-            }
-
-            // const card = `<div id="${uid}" class="card ${name}">
-            //         <img id="${uid}" src="img/i01_cat.jpg" alt="card img">
-            //         <div id="${uid}" class="desc" style="overflow-wrap: break-all;">${desc}</div>
-            //     </div>`      
-            
+            }    
+        
             const card = `<div id="${uid}" class="card ${name}">
                 <div id="${uid}" class="cinfo">
                     <div id="${uid} cost">
