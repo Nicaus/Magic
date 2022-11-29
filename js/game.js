@@ -173,13 +173,13 @@ function showcards(data, board, c){
         
             const card = `<div id="${uid}" class="card ${name}">
                 <div id="${uid}" class="cinfo">
-                    <div id="${uid} cost">
+                    <div id="${uid} cost" class="middle img">
                         ${cost}
                     </div>
-                    <div id="${uid} hpp">
+                    <div id="${uid} hpp" class="middle img">
                         ${hpp}
                     </div>
-                    <div id="${uid} atk">
+                    <div id="${uid} atk" class="middle img">
                         ${atk}
                     </div>
                 </div>

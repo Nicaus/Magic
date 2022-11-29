@@ -102,24 +102,36 @@ body {
     height: 16vw;
 } 
 
-#yourinfo{
+#info{
     display: inline-grid;
+    width: 7vw
+}
+
+#yourhand{
+    width: auto;
+}
+
+#hand{
+    display: flex;
+	justify-content: center;
+    flex-direction: row;
 }
 
 #buttons{
     padding: 2vw;
+    width: 7vw;
 }
 
 #bot{
     position: absolute;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: rgba(255, 255, 255, 0.411);
     display: flex;
 	justify-content: space-between;
     border-radius: 20px;
-    margin: 0.5vw;
+    /* margin: 0.5vw; */
 }
 
 .even{
@@ -151,8 +163,15 @@ body {
 }
 
 .cinfo{
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     color: blue;
+}
+
+.img{
+    background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
 }
 
 

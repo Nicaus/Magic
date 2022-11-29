@@ -77,7 +77,7 @@
                 </div>    
 
                 <div id="yourhand">
-                    <div id="hand" class="evendiv" method="post">
+                    <div id="hand" method="post">
 
                     </div>
                 </div>
