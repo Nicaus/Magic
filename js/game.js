@@ -65,17 +65,17 @@ const state = () => {
                     error = "Hero Power a déja été utilisé"; break;
             }
 
-            document.querySelector("#turntime").innerHTML = "Turn Time: " + data["remainingTurnTime"];
+            document.querySelector("#turntime").innerHTML = data["remainingTurnTime"];
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
-            document.querySelector("#hp").innerHTML = "Health: " + data["hp"];
+            document.querySelector("#hp").innerHTML = data["hp"];
             // document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
-            document.querySelector("#mp").innerHTML = "Magic: " + data["mp"];
+            document.querySelector("#mp").innerHTML = data["mp"];
             // document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
             // document.querySelector("#error").innerHTML = "Error: " + error;
             // document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
-            document.querySelector("#remainingcardcount").innerHTML = "Remaining Cards: " + data["remainingCardsCount"];
+            document.querySelector("#remainingcardcount").innerHTML = data["remainingCardsCount"];
 
             // OP SIDE OF THE BOARD
             document.querySelector("#opusername").innerHTML = data["opponent"]["username"];
@@ -173,17 +173,18 @@ function showcards(data, board, c){
         
             const card = `<div id="${uid}" class="card ${name}">
                 <div id="${uid}" class="cinfo">
-                    <div id="${uid} cost" class="middle img">
+                    <div id="${uid}" class="cost middle img">
                         ${cost}
                     </div>
-                    <div id="${uid} hpp" class="middle img">
+                    <div id="${uid}" class="hpp middle img">
                         ${hpp}
                     </div>
-                    <div id="${uid} atk" class="middle img">
+                    <div id="${uid}" class="atk middle img">
                         ${atk}
                     </div>
                 </div>
-                <div id="${uid}" class="image"></div>
+                
+                <div class="imgcon"><div id="${uid}" class="image"></div></div>
                 <div id="${uid}" class="desc">${desc}</div>
             </div>`
             const element = document.createElement('div');

@@ -41,6 +41,10 @@ input{
 	font-size: 25px;
 	text-align: center;
 }
+
+div{
+	font-size: 12px;
+}
 	
 .login-form-frame{
 	margin: 20px auto;
@@ -54,9 +58,7 @@ input{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* position: absolute; */
-  	/* top: 50%; */
- 	/* left: 50%; */
+	font-size: 18px;
 }
 
 .evendiv{
@@ -72,6 +74,7 @@ input{
 	font-size: 25px;
   	display: flex;
 	margin: 0.5vw;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+	
 }

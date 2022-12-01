@@ -62,17 +62,17 @@
 
             <div id="bot">
                 <div id="info">
-                    <div id="turntime"></div>
                     <div id="yourturn"></div>
                     <div id="heropowerused"></div>
-                    <div id="hp"></div>
-                    <!-- <div id="maxhp"></div> -->
-                    <div id="mp"></div>
-                    <!-- <div id="maxmp"></div> -->
-                    <!-- <div id="welcometext"></div> -->
                     <div id="heroclass"></div>
                     <div id="talent"></div>
-                    <div id="remainingcardcount"></div>
+                    <div id="turntime" class="time middle"></div>
+                    <div id="hp" class="hpp middle"></div>
+                    <!-- <div id="maxhp"></div> -->
+                    <div id="mp" class="mp middle"></div>
+                    <!-- <div id="maxmp"></div> -->
+                    <!-- <div id="welcometext"></div> -->
+                    <div id="remainingcardcount" class="rest middle"></div>
                     <!-- <div id="error"></div> -->
                 </div>    
 

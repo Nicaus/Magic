@@ -3,24 +3,83 @@ body {
     display: grid;
 }
 
-#cost{
-    background-image: url(../img/icons/cost.png);
-}
-
-#hpp{
-    background-image: url(../img/icons/hp.png);
-}
-
-#atk{
-    background-image: url(../img/icons/atk.png);
-}
-
-#cost, #hpp, #atk{
+#opimage{
+    background-image: url(../img/enemy.png);
     background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
 }
 
-#info{
-    padding: 2vw;
+#opmp{
+    background-image: url(../img/icons/mp.png);
+    background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
+}
+
+#ophp{
+    background-image: url(../img/icons/hp.png);
+    background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
+}
+
+#opcardcount{
+    background-image: url(../img/icons/rest.png);
+    background-size: 50px 50px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.cost{
+    background-image: url(../img/icons/cost.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.hpp{
+    background-image: url(../img/icons/hp.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.atk{
+    background-image: url(../img/icons/atk.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.mp{
+    background-image: url(../img/icons/mp.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.time{
+    background-image: url(../img/icons/time.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.rest{
+    background-image: url(../img/icons/rest.png);
+    background-size: 25px 25px;
+    width: 3vw;
+    height: 3vw;
+}
+
+.cost,.hpp,.atk{
+    font-size: 15px;
+}
+
+#info>.middle{
+    background-size: 50px 50px;
+    color: white;
 }
 
 #opponentinfo{
@@ -63,38 +122,12 @@ body {
     align-items: center; 
     flex-direction: row;
     width: 150px;
-}
-
-#opimage{
-    background-image: url(../img/enemy.png);
-    background-size: 50px 50px;
-    width: 3vw;
-    height: 3vw;
-}
-
-#opmp{
-    background-image: url(../img/icons/cost.png);
-    background-size: 50px 50px;
-    width: 3vw;
-    height: 3vw;
-}
-
-#ophp{
-    background-image: url(../img/icons/hp.png);
-    background-size: 50px 50px;
-    width: 3vw;
-    height: 3vw;
-}
-
-#opcardcount{
-    background-image: url(../img/icons/atk.png);
-    background-size: 50px 50px;
-    width: 3vw;
-    height: 3vw;
+    color: white;
+    font-size: 20px;
 }
 
 #opponentboard{
-    margin-top: 2vw;
+    margin-top: 3vw;
     height: 16vw;
 }
 
@@ -103,12 +136,18 @@ body {
 } 
 
 #info{
-    display: inline-grid;
-    width: 7vw
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 7vw;
+    padding: 1vw;
+    margin-left: 30px;
 }
 
 #yourhand{
     width: auto;
+    display: flex;
+    align-items: center;
 }
 
 #hand{
@@ -141,12 +180,12 @@ body {
 
 .card{
 	box-shadow: 0 0.2vw 0.4vw 0 rgba(0,0,0,0.2);
-	height: 12vw;
-	width: 8vw;
+	height: 10vw;
+	width: 6vw;
     margin: 0.5vw;
     padding: 0.5vw;
 	border-radius: 1vw;
-    background-color:ivory;
+    background-color: plum;
 }
 
 .card>desc{
@@ -156,23 +195,27 @@ body {
 .image{
     background-image: url("../img/i01_cat.jpg");
     background-size: 125px;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 1vw;
+}
 
-    width: 8vw;
-    height: 8vw;
-    border-radius: 5vw;
+.imgcon{
+    display: flex;
+    justify-content: center;
 }
 
 .cinfo{
     display: flex;
     flex-direction: row;
-    color: blue;
+    color: white;
 }
 
-.img{
+/* .img{
     background-size: 50px 50px;
-    width: 3vw;
-    height: 3vw;
-}
+    width: 1vw;
+    height: 1vw;
+} */
 
 
 
