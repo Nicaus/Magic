@@ -69,8 +69,8 @@ const state = () => {
             document.querySelector("#yourturn").innerHTML = "Your turn: " + data["yourTurn"];
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
             document.querySelector("#hp").innerHTML = data["hp"];
-            // document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             document.querySelector("#mp").innerHTML = data["mp"];
+            // document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
             // document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
             // document.querySelector("#error").innerHTML = "Error: " + error;
             // document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
@@ -172,19 +172,18 @@ function showcards(data, board, c){
             }    
         
             const card = `<div id="${uid}" class="card ${name}">
+                <div class="imgcon"><div id="${uid}" class="image"></div></div>
                 <div id="${uid}" class="cinfo">
-                    <div id="${uid}" class="cost middle img">
+                    <div id="${uid}" class="cost middle">
                         ${cost}
                     </div>
-                    <div id="${uid}" class="hpp middle img">
+                    <div id="${uid}" class="hpp middle">
                         ${hpp}
                     </div>
-                    <div id="${uid}" class="atk middle img">
+                    <div id="${uid}" class="atk middle">
                         ${atk}
                     </div>
                 </div>
-                
-                <div class="imgcon"><div id="${uid}" class="image"></div></div>
                 <div id="${uid}" class="desc">${desc}</div>
             </div>`
             const element = document.createElement('div');

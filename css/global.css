@@ -24,7 +24,6 @@ html, body{
 button{
 	font-size: 100px;
 	border: none;
-  	/* background-color: #FF6FFF; */
   	border-radius: 50%;
 	border-color: black;
 }
@@ -32,9 +31,7 @@ button{
 
 button:active{
 	background-color: #3e8e41;
-	/* box-shadow: 0 5px #666; */
 	transform: translateY(4px);
-	/* transform: scale(100px); */
 }
 
 input{

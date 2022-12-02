@@ -66,14 +66,17 @@
                     <div id="heropowerused"></div>
                     <div id="heroclass"></div>
                     <div id="talent"></div>
-                    <div id="turntime" class="time middle"></div>
-                    <div id="hp" class="hpp middle"></div>
-                    <!-- <div id="maxhp"></div> -->
-                    <div id="mp" class="mp middle"></div>
-                    <!-- <div id="maxmp"></div> -->
-                    <!-- <div id="welcometext"></div> -->
-                    <div id="remainingcardcount" class="rest middle"></div>
-                    <!-- <div id="error"></div> -->
+
+                    <div id="containerinfo">
+                        <div class="row">
+                            <div id="turntime" class="time middleinfo"></div>
+                            <div id="remainingcardcount" class="rest middleinfo"></div>
+                        </div>
+                        <div class="row">
+                            <div id="hp" class="hpp middleinfo"></div>
+                            <div id="mp" class="mp middleinfo"></div>
+                        </div>
+                    </div>
                 </div>    
 
                 <div id="yourhand">
@@ -87,26 +90,6 @@
                     <button id="surrender" name="surrender" class="b">Surrender</button>
                 </div>
             </div>
-
-            <!-- <div id="${uid}" class="card ${name}">
-                <div id="${uid}" class="image evendiv"></div>
-                <div id="${uid}" class="cinfo">
-                    <div id="${uid} cost">
-                        ${cost}
-                    </div>
-                    <div id="${uid} hpp">
-                        ${hpp}
-                    </div>
-                    <div id="${uid} atk">
-                        ${atk}
-                    </div>
-                </div>
-                <div id="${uid}" class="desc">${desc}</div>
-            </div> -->
-
-            <!-- <div id="actionlist">
-                <div id="lastestactions"></div>
-            </div> -->
         </div>
     </body>
 </html>

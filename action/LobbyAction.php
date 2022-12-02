@@ -49,7 +49,13 @@
                 } elseif ($result == "INVALID_KEY"){
                     header("Location: index.php");
                 }
-            }
+            } elseif (isset($_POST['stats'])) {
+                header("Location: stats.php");
+                
+            } elseif (isset($_POST['deck'])) {
+                header("Location: deck.php");
+                
+            } 
             return compact("data");
         }
     }

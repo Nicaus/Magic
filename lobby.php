@@ -18,6 +18,12 @@
             <div>
                 <button name="quit" class="b">Quitter</button>
             </div>
+            <div>
+                <button name="stats" class="b">Stats</button>
+            </div>
+            <div>
+                <button name="deck" class="b">Deck</button>
+            </div>
     </form>
     
     <!-- https://stackoverflow.com/questions/20738329/how-to-call-a-php-function-on-the-click-of-a-button -->
