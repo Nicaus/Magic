@@ -1,0 +1,6 @@
+CREATE TABLE stats (
+	id serial PRIMARY KEY,
+	uid VARCHAR(5) NOT NULL,
+	used INTEGER NOT NULL,
+	ratio INTEGER NOT NULL
+);
