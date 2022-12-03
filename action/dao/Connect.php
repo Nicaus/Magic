@@ -1,16 +1,16 @@
 <?php
     require_once("constants.php");
 
-    class Connection {
+    class Connect {
         private static $connection = null;
 
         public static function getConnection() {
             if (empty(Connection::$connection)) {
-                Connection::$connection = new PDO(DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-                Connection::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                Connection::$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                Connect::$connection = new PDO(DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+                Connect::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                Connect::$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             }
 
-            return Connection::$connection;
+            return Connect::$connection;
         }
     }
