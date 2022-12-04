@@ -1,13 +1,16 @@
 <?php
     require_once("action/CommonAction.php");
+    require_once("action/dao/StatsDAO.php");
 
-    class StatsAction extends CommonAction {
+    class AjaxStatsAction extends CommonAction {
 
         public function __construct() {
             parent::__construct(CommonAction::$VISIBILITY_PUBLIC);
         }
 
         protected function executeAction() {
-            return [];
+            $stats = StatsDAO::getStats();
+
+            return compact("stats");
         }
     }

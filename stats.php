@@ -8,7 +8,7 @@
 ?>
 
 <body style="background-image: url(img/login.png);">
-    <div id="stats">
+    <div id="infostats">
 
 
     </div>

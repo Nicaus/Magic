@@ -2,7 +2,7 @@
     require_once("actions/DAO/Connect.php");
 
     class AnswerDAO{
-        public static function getAnswers(){
+        public static function getStats(){
             $connection = Connect::getConnection();
             
             $answers = $connection->prepare("SELECT * FROM stats");
@@ -12,7 +12,7 @@
             return $answers->fetchAll();
         }
 
-        public static function addAnswer($uid, $used, $ratio){
+        public static function addStats($uid, $used, $ratio){
             $connection = Connect::getConnection();
             
             $add = $connection->prepare("INSERT INTO stack_answers (uid, used, ratio) VALUES (?, ?, ?)");
