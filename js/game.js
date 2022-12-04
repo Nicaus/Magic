@@ -218,6 +218,17 @@ const gameaction = (e, uid, targetuid) => {
     .then(response => response.json())
 };
 
+const db = () => {
+
+    data.append()
+
+    fetch("ajax-stats.php", {
+        method : "post",
+        body: data
+    })
+    .then(response => response.json())
+};
+
 window.addEventListener("load", () => {
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
