@@ -9,8 +9,13 @@
         }
 
         protected function executeAction() {
-            $stats = StatsDAO::getStats();
+            $uid = $_POST["uid"];
+            $used = $_POST["used"];
+            $ratio = $_POST["ratio"];
 
-            return compact("stats");
+            $addstats = StatsDAO::addStats($uid, $used, $ratio);
+            $getstats = StatsDAO::getStats();
+
+            return compact("getstats");
         }
     }

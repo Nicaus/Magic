@@ -15,7 +15,7 @@
         public static function addStats($uid, $used, $ratio){
             $connection = Connect::getConnection();
             
-            $add = $connection->prepare("INSERT INTO stack_answers (uid, used, ratio) VALUES (?, ?, ?)");
+            $add = $connection->prepare("INSERT INTO stack_answers(uid, used, ratio) VALUES (?, ?, ?)");
             $add->bindParam(1, $uid);
             $add->bindParam(2, $used);
             $add->bindParam(3, $ratio);

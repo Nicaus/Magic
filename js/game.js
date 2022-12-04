@@ -2,7 +2,6 @@ let len = 0;
 let cardlength = null;
 let storedid = null;
 let uid = "";
-let error = "";
 
 const state = () => {
     fetch("ajax-state.php", { // Il faut créer cette page et son contrôleur appelle
@@ -121,8 +120,13 @@ const state = () => {
             const handcards = hand.querySelectorAll(".hcards");
             handcards.forEach( c => {
                 c.onclick = e =>{
-                    console.log(e.target.id);
-                    gameaction("PLAY", e.target.id, '');
+                    let cid = e.target.id
+                    len++;
+                    cid.count++;
+                    console.log(cid);
+                    gameaction("PLAY", cid, '');
+                    db(cid, cid.count);
+                    
                 }
             });
 
@@ -218,9 +222,9 @@ const gameaction = (e, uid, targetuid) => {
     .then(response => response.json())
 };
 
-const db = () => {
-
-    data.append()
+const db = (uid, used) => {
+    let ratio = used / len;
+    data.append(uid, used, ratio)
 
     fetch("ajax-stats.php", {
         method : "post",

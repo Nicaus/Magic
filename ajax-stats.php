@@ -4,4 +4,4 @@
     $action = new AjaxStatsAction();
     $data = $action->execute();
 
-    echo json_encode($data["stats"]);
+    echo json_encode($data["getstats"]);
