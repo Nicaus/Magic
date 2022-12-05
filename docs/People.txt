@@ -1,9 +1,9 @@
 Canada( 11
-	Justin Trudeau
-	Pierre Elliot Trudeau
-	Renée Levesque
-	Maurice Duplessis
-	Francois Legault
+	Justin Trudeau O
+	Pierre Elliot Trudeau O
+	Renée Levesque O
+	Maurice Duplessis O
+	Francois Legault O 
 	Gabriel Nadeau Dubois
 	Jack Layton
 	Valerie Plante
@@ -12,7 +12,8 @@ Canada( 11
 	Nardwuar
 )
 
-USA( 11
+USA( 12
+	Joe Biden O
 	Donald J. Trump
 	Barack Obama
 	George Bush
@@ -26,9 +27,10 @@ USA( 11
 	Harry S. Trueman 
 )
 
-Europe( 13
-	Emmanuel Macron
+Europe( 14
+	Emmanuel Macron O
 	Margaret Thatcher
+	Volodymyr Zelensky O
 	Angela Merkel
 	Adolf Hitler
 	Benito Mussolini

@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "webpgsql.notes-de-cours.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "lemar",
+            "database": "db_e1993580",
+            "username": "e1993580",
+            "password": "e1993580"
+        }
+    ]
+}
