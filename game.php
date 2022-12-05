@@ -18,6 +18,7 @@
         <link rel="manifest" href="img/site.webmanifest">
         <link rel="manifest" href="img/site.webmanifest">
         <link rel="stylesheet" href="css/game.css" />
+        <link rel="stylesheet" href="css/image.css" />
         <script src="./js/game.js"></script>
         <title>Magix - Pratique</title>
     </head>
@@ -52,13 +53,11 @@
                 </div>
             </div>
 
-
             <div id="yourboard" class="even">
                 <div id="board" class="evendiv" method="post"> 
 
                 </div>
-            </div>    
-
+            </div>
 
             <div id="bot">
                 <div id="info">
@@ -67,7 +66,7 @@
                     <div id="heroclass"></div>
                     <div id="talent"></div>
                     <div id="error"></div>
-
+                    
                     <div id="containerinfo">
                         <div class="row">
                             <div id="turntime" class="time middleinfo"></div>
@@ -89,6 +88,7 @@
                 <div id="buttons" action="" method="post">
                     <button id="endturn" name="endturn" class="b">End Turn</button>
                     <button id="surrender" name="surrender" class="b">Surrender</button>
+                    <button id="hpower" name="hpower" class="b">Hero Power</button>
                 </div>
             </div>
         </div>

@@ -12,12 +12,11 @@
             return $answers->fetchAll();
         }
 
-        public static function addStats($uid, $ratio){
+        public static function addStats($id){
             $connection = Connect::getConnection();
             
-            $add = $connection->prepare("INSERT INTO stack_answers(uid, ratio) VALUES (?, ?)");
-            $add->bindParam(2, $uid);
-            $add->bindParam(3, $ratio);
+            $add = $connection->prepare("INSERT INTO stats(uid) VALUES (?)");
+            $add->bindParam(1, $id);
             $add->execute();
         }
 

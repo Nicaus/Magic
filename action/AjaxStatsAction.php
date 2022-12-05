@@ -9,12 +9,9 @@
         }
 
         protected function executeAction() {
-            $uid = $_POST["uid"];
-            $ratio = StatsDAO::getCount() / StatsDAO::getTotal();
+            $stats = StatsDAO::getStats();
+            $id = $_POST["id"];
 
-            $addstats = StatsDAO::addStats($uid, $ratio);
-            $getstats = StatsDAO::getStats();
-
-            return compact("getstats");
+            $addstats = StatsDAO::addStats($id);
         }
     }

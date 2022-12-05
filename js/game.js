@@ -108,6 +108,11 @@ const state = () => {
                 gameaction("SURRENDER", '', '');
             };
 
+            const hpower = document.querySelector("#hpower");
+            hpower.onclick = () => {
+                gameaction("HERO_POWER", '', '');
+            };
+
             // CARD 
             const handcards = hand.querySelectorAll(".hcards");
             handcards.forEach( c => {
@@ -116,7 +121,7 @@ const state = () => {
                     len++;
                     console.log(cid);
                     gameaction("PLAY", cid, '');
-                    db(cid);
+                    db(c.id);
                 }
             });
 
@@ -124,7 +129,7 @@ const state = () => {
             boardcards.forEach( c => {
                 c.onclick = e =>{
                     console.log(e.target.id);
-                    uid = e.target.id;
+                    uid = e.target.uid;
                 }
             });
 
@@ -154,6 +159,7 @@ function showcards(data, board, c){
         data.forEach(cardjs => {
             let desc = cardjs.mechanics;
             const uid = cardjs.uid;
+            const id = cardjs.id;
             const cost = cardjs.cost;
             const hpp = cardjs.hp;
             const atk = cardjs.atk;
@@ -164,7 +170,7 @@ function showcards(data, board, c){
             }    
         
             const card = `<div id="${uid}" class="card ${name}">
-                <div class="imgcon"><div id="${uid}" class="image"></div></div>
+                <div id="img${id}" class="imgcon"><div id="${uid}" class="image"></div></div>
                 <div id="${uid}" class="cinfo">
                     <div id="${uid}" class="cost middle">
                         ${cost}
@@ -189,7 +195,7 @@ function showcards(data, board, c){
 const gameaction = (e, uid, targetuid) => {
     let data = new FormData();
 
-    if (e == "END_TURN" || e == "SURRENDER" || e == "HERO_PLAY"){
+    if (e == "END_TURN" || e == "SURRENDER" || e == "HERO_POWER"){
         data.append("type", e);
         data.append("uid", "");
         data.append("targetuid", "");
@@ -210,10 +216,10 @@ const gameaction = (e, uid, targetuid) => {
     .then(response => response.json())
 };
 
-const db = (uid) => {
+const db = (id) => {
     let data = new FormData();
     
-    data.append("uid", uid);
+    data.append("id", id);
 
     fetch("ajax-stats.php", {
         method : "post",

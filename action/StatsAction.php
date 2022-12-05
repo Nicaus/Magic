@@ -8,6 +8,10 @@
         }
 
         protected function executeAction() {
-            return [];
+
+            $count = StatsDAO::getCount();
+            $total = StatsDAO::getTotal();
+
+            return compact('count', 'total');
         }
     }
