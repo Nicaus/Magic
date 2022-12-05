@@ -211,7 +211,7 @@ const gameaction = (e, uid, targetuid) => {
 const db = (uid) => {
     let data = new FormData();
     
-    data.append(uid)
+    data.append("uid", uid);
 
     fetch("ajax-stats.php", {
         method : "post",

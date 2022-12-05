@@ -1,7 +1,7 @@
 <?php
     require_once("action/DAO/Connect.php");
 
-    class AnswerDAO{
+    class StatsDAO{
         public static function getStats(){
             $connection = Connect::getConnection();
             
