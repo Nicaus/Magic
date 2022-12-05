@@ -1,5 +1,5 @@
 <?php
-    require_once("actions/DAO/Connect.php");
+    require_once("action/DAO/Connect.php");
 
     class AnswerDAO{
         public static function getStats(){
@@ -47,6 +47,4 @@
             $empty = $connection->prepare("TRUNCATE TABLE stats");
             $empty->execute();
         }
-
-        
     }
