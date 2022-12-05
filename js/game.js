@@ -1,7 +1,9 @@
 let len = 0;
 let cardlength = null;
 let storedid = null;
-let uid = "";
+/**
+ * @todo: create table, affiche et fix css pour le db
+ */
 
 const state = () => {
     fetch("ajax-state.php", { 
