@@ -4,16 +4,15 @@ let storedid = null;
 let uid = "";
 
 const state = () => {
-    fetch("ajax-state.php", { // Il faut créer cette page et son contrôleur appelle
-        method : "POST" // l’API (games/state)
+    fetch("ajax-state.php", { 
+        method : "POST"
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // contient les cartes/état du jeu.
+        console.log(data); 
 
         if (data == "WAITING") { 
-            // header("Location: ajax-state.php");
-            // $_SESSION["state"] = data;
+
         } else if (data == "LAST_GAME_WON") {  
             blur();
             alert("YOU WON :)");
@@ -35,33 +34,33 @@ const state = () => {
         } else {    
             switch(data){
                 case "INVALID_KEY":
-                    error = "Clé invalide, deloggez-vous et ressayez"; break;
+                    document.querySelector("#error").innerHTML = "Clé invalide, deloggez-vous et ressayez"; break;
                 case "INVALID_ACTION":
-                    error = "Action invalide"; break;
+                    document.querySelector("#error").innerHTML = "Action invalide"; break;
                 case "ACTION_IS_NOT_AN_OBJECT":
-                    error = "Votre action n'est pas un objet!"; break;
+                    document.querySelector("#error").innerHTML = "Votre action n'est pas un objet!"; break;
                 case "NOT_ENOUGH_ENERGY":
-                    error = "Pas assez d'énergie ;("; break;
+                    document.querySelector("#error").innerHTML = "Pas assez d'énergie ;("; break;
                 case "BOARD_IS_FULL ":
-                    error = "Trop de carte en jeu "; break;
+                    document.querySelector("#error").innerHTML = "Trop de carte en jeu "; break;
                 case "CARD_NOT_IN_HAND":
-                    error = "Il n'y a pas de carte dans votre main"; break;
+                    document.querySelector("#error").innerHTML = "Il n'y a pas de carte dans votre main"; break;
                 case "CARD_IS_SLEEPING":
-                    error = "Carte endormie"; break;
+                    document.querySelector("#error").innerHTML = "Carte endormie"; break;
                 case "MUST_ATTACK_TAUNT_FIRST":
-                    error = "Attacker le Taunt en premier"; break;
+                    document.querySelector("#error").innerHTML = "Attacker le Taunt en premier"; break;
                 case "OPPONENT_CARD_NOT_FOUND":
-                    error = "Carte visé n'existe pas"; break;
+                    document.querySelector("#error").innerHTML = "Carte visé n'existe pas"; break;
                 case "OPPONENT_CARD_HAS_STEALTH":
-                    error = "Carte visé est invisible"; break;
+                    document.querySelector("#error").innerHTML = "Carte visé est invisible"; break;
                 case "CARD_NOT_FOUND":
-                    error = "Carte non trouvé"; break;
+                    document.querySelector("#error").innerHTML = "Carte non trouvé"; break;
                 case "ERROR_PROCESSING_ACTION":
-                    error = "Votre action n'a pas été traité"; break;
+                    document.querySelector("#error").innerHTML = "Votre action n'a pas été traité"; break;
                 case "INTERNAL_ACTION_ERROR":
-                    error = "Erreur interne"; break;
+                    document.querySelector("#error").innerHTML = "Erreur interne"; break;
                 case "HERO_POWER_ALREADY_USED":
-                    error = "Hero Power a déja été utilisé"; break;
+                    document.querySelector("#error").innerHTML = "Hero Power a déja été utilisé"; break;
             }
 
             document.querySelector("#turntime").innerHTML = data["remainingTurnTime"];
@@ -69,10 +68,6 @@ const state = () => {
             document.querySelector("#heropowerused").innerHTML = "Power Used: " + data["heroPowerAlreadyUsed"];
             document.querySelector("#hp").innerHTML = data["hp"];
             document.querySelector("#mp").innerHTML = data["mp"];
-            // document.querySelector("#maxhp").innerHTML = "Max HP: " + data["maxHp"];
-            // document.querySelector("#maxmp").innerHTML = "Max Magic: " + data["maxMp"];
-            // document.querySelector("#error").innerHTML = "Error: " + error;
-            // document.querySelector("#welcometext").innerHTML = "Welcome Text: " + data["welcomeText"];
             document.querySelector("#heroclass").innerHTML = "Hero Class: " + data["heroClass"];
             document.querySelector("#remainingcardcount").innerHTML = data["remainingCardsCount"];
 
@@ -83,11 +78,6 @@ const state = () => {
             document.querySelector("#opcardcount").innerHTML = data.opponent.remainingCardsCount;
             document.querySelector("#opmp").innerHTML = data.opponent.mp;
             document.querySelector("#ophp").innerHTML = data.opponent.hp;
-
-            // document.querySelector("#optrophycount").innerHTML = "trophy count: " + data.opponent.trophyCount;
-            // document.querySelector("#opwincount").innerHTML = "win count: " + data.opponent.winCount;
-            // document.querySelector("#oplosscount").innerHTML = "loss count: " + data.opponent.lossCount;
-            // document.querySelector("#optalent").innerHTML = "talent: " + data.opponent.talent;
 
             // HAND
             let hand = document.querySelector("#hand");
@@ -122,11 +112,9 @@ const state = () => {
                 c.onclick = e =>{
                     let cid = e.target.id
                     len++;
-                    cid.count++;
                     console.log(cid);
                     gameaction("PLAY", cid, '');
-                    db(cid, cid.count);
-                    
+                    db(cid);
                 }
             });
 
@@ -153,8 +141,6 @@ const state = () => {
                 gameaction("ATTACK", uid, "0");
                 uid = "";
             };
-                    
-            // document.querySelector("#lastestactions").innerHTML = "actions: " + JSON.stringify(data["latestActions"]);
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
@@ -222,9 +208,10 @@ const gameaction = (e, uid, targetuid) => {
     .then(response => response.json())
 };
 
-const db = (uid, used) => {
-    let ratio = used / len;
-    data.append(uid, used, ratio)
+const db = (uid) => {
+    let data = new FormData();
+    
+    data.append(uid)
 
     fetch("ajax-stats.php", {
         method : "post",

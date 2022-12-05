@@ -10,10 +10,9 @@
 
         protected function executeAction() {
             $uid = $_POST["uid"];
-            $used = $_POST["used"];
-            $ratio = $_POST["ratio"];
+            $ratio = StatsDAO::getCount() / StatsDAO::getTotal();
 
-            $addstats = StatsDAO::addStats($uid, $used, $ratio);
+            $addstats = StatsDAO::addStats($uid, $ratio);
             $getstats = StatsDAO::getStats();
 
             return compact("getstats");

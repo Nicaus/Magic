@@ -66,6 +66,7 @@
                     <div id="heropowerused"></div>
                     <div id="heroclass"></div>
                     <div id="talent"></div>
+                    <div id="error"></div>
 
                     <div id="containerinfo">
                         <div class="row">

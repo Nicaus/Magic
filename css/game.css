@@ -150,6 +150,9 @@ body {
     padding: 1vw;
     margin-left: 30px;
 }
+#info>div{
+    font-size: 15px;
+}
 
 #yourhand{
     width: auto;
